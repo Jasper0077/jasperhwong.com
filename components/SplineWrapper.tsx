@@ -1,4 +1,4 @@
-import Spline from '@splinetool/react-spline';
+import Spline from "@splinetool/react-spline";
 
 const SplineWrapper = () => {
   return (
