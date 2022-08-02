@@ -8,18 +8,16 @@ import { Url } from "url";
 import Footer from "./Footer";
 
 export interface NavItemProps {
-  href: Url | string,
-  text: string
+  href: Url | string;
+  text: string;
 }
 
 export interface ContainerProps {
-  children?: JSX.Element | Array<JSX.Element> | undefined,
-  customMeta?: Record<Key, string>
+  children?: JSX.Element | Array<JSX.Element> | undefined;
+  customMeta?: Record<Key, string>;
 }
 
-const customMeta = {
-
-}
+const customMeta = {};
 
 function NavItem({ href, text }: NavItemProps) {
   const router = useRouter();
@@ -51,7 +49,8 @@ export default function Container({ children, customMeta }: ContainerProps) {
   const meta = {
     name: "Jasper Hwong",
     title: "Jasper Hwong – Developer.",
-    description: "Full-stack software engineer based in Singapore." + 
+    description:
+      "Full-stack software engineer based in Singapore." +
       "interested in Web Development, Machine Learning and Algorithms",
     ...customMeta
   };
