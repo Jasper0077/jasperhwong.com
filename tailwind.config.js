@@ -21,7 +21,7 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ["Merriweather", ...fontFamily.sans]
+        sans: ["Ubuntu", ...fontFamily.sans]
       },
       typography: (theme) => ({
         DEFAULT: {
