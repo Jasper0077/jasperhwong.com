@@ -6,6 +6,7 @@ import NextLink from "next/link";
 import cn from "classnames";
 import { Url } from "url";
 import Footer from "./Footer";
+import useSound from "use-sound";
 
 export interface NavItemProps {
   href: Url | string;
@@ -42,10 +43,10 @@ function NavItem({ href, text }: NavItemProps) {
 export default function Container({ children, customMeta }: ContainerProps) {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
+  const [play] = useSound("/sounds/click.mp3");
 
   // After mounting, we have access to the theme
   useEffect(() => setMounted(true), []);
-  const router = useRouter();
   const meta = {
     name: "Jasper Hwong",
     title: "Jasper Hwong – Developer.",
@@ -53,6 +54,11 @@ export default function Container({ children, customMeta }: ContainerProps) {
       "Full-stack software engineer based in Singapore." +
       "interested in Web Development, Machine Learning and Algorithms",
     ...customMeta
+  };
+
+  const handleThemeClick: () => void = () => {
+    setTheme(resolvedTheme === "light" ? "dark" : "light");
+    play();
   };
 
   return (
@@ -70,8 +76,7 @@ export default function Container({ children, customMeta }: ContainerProps) {
           </a>
           <div className="ml-[-0.60rem]">
             <NavItem href="/" text="Home" />
-            <NavItem href="/guestbook" text="Guestbook" />
-            <NavItem href="/dashboard" text="Dashboard" />
+            <NavItem href="/about" text="About" />
             <NavItem href="/blog" text="Blog" />
             <NavItem href="/snippets" text="Snippets" />
           </div>
@@ -80,9 +85,7 @@ export default function Container({ children, customMeta }: ContainerProps) {
             type="button"
             className="w-9 h-9 bg-gray-200 rounded-lg dark:bg-gray-600 
               flex items-center justify-center  hover:ring-2 ring-gray-300  transition-all"
-            onClick={() =>
-              setTheme(resolvedTheme === "light" ? "dark" : "light")
-            }
+            onClick={handleThemeClick}
           >
             {mounted && (
               <svg
