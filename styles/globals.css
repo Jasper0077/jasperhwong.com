@@ -3,19 +3,19 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Merriweather";
+  font-family: "Ubuntu";
   font-style: normal;
   font-weight: 100 900;
   font-display: optional;
-  src: url(/fonts/merriweather-v30-latin-regular.woff2) format("woff2");
+  src: url(/fonts/ubuntu-regular.ttf) format("ttf");
 }
 
 @font-face {
-  font-family: "Merriweather";
+  font-family: "Ubuntu";
   font-style: italic;
   font-weight: 100 900;
   font-display: optional;
-  src: url(/fonts/merriweather-v30-latin-italic.woff2) format("woff2");
+  src: url(/fonts/ubuntu-regular-italic.ttf) format("ttf");
 }
 
 ::selection {
