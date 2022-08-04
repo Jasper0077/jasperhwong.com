@@ -1,4 +1,5 @@
 import Container from "../components/Container";
+import Timeline from "../components/Timeline";
 
 const About = () => {
   return (
@@ -13,9 +14,10 @@ const About = () => {
           <p>Jasper Hwong - Software Developer</p>
           <h3>Work Experience</h3>
           <p>
-            Hi, my name is Jasper Hwong, {"I'm"} a software developer at{" "}
-            <a href="https://unotech.io">Uno Technologies</a> in Singapore.
+            Hi, my name is Jasper Hwong, {"I'm"} currently a software developer
+            at <a href="https://unotech.io">Uno Technologies</a> in Singapore.
           </p>
+          <Timeline />
         </div>
       </div>
     </Container>
