@@ -7,6 +7,7 @@ import cn from "classnames";
 import { Url } from "url";
 import Footer from "./Footer";
 import useSound from "use-sound";
+import MobileMenu from "./MobileMenu";
 
 export interface NavItemProps {
   href: Url | string;
@@ -75,6 +76,7 @@ export default function Container({ children, customMeta }: ContainerProps) {
             Skip to content
           </a>
           <div className="ml-[-0.60rem]">
+            <MobileMenu />
             <NavItem href="/" text="Home" />
             <NavItem href="/about" text="About" />
             <NavItem href="/blog" text="Blog" />
