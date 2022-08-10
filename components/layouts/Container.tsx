@@ -5,9 +5,9 @@ import { useTheme } from "next-themes";
 import NextLink from "next/link";
 import cn from "classnames";
 import { Url } from "url";
-import Footer from "./Footer";
+import Footer from "../Footer";
 import useSound from "use-sound";
-import MobileMenu from "./MobileMenu";
+import MobileMenu from "../MobileMenu";
 
 export interface NavItemProps {
   href: Url | string;
@@ -79,7 +79,7 @@ export default function Container({ children, customMeta }: ContainerProps) {
             <MobileMenu />
             <NavItem href="/" text="Home" />
             <NavItem href="/about" text="About" />
-            <NavItem href="/blog" text="Blog" />
+            <NavItem href="/blogs" text="Blogs" />
             <NavItem href="/snippets" text="Snippets" />
           </div>
           <button
