@@ -2,6 +2,7 @@ import type { NextPage, GetStaticProps } from "next";
 import { Post } from "../../types/Post";
 import Link from "next/link";
 import { getAllPosts } from "../../utils/mdx";
+import BlogPostCard from "../../components/blog/BlogPostCard";
 
 // props type
 interface Props {
@@ -11,20 +12,14 @@ interface Props {
 // component render function
 const Blogs: NextPage<Props> = ({ posts }: Props) => {
   return (
-    <div>
-      <h1 className="text-4xl font-bold mb-4">Technical articles</h1>
+    <div className="flex flex-col justify-center px-8 my-8">
+      <h1 className="flex w-full max-w-2xl relative text-4xl font-bold mx-auto pt-8 pb-8 sm:pb-16">
+        Technical articles
+      </h1>
 
-      <div className="space-y-12">
-        {posts.map((post) => (
-          <div key={post.slug}>
-            <h2 className="text-2xl font-bold mb-4">
-              <Link href={`/blogs/${post.slug}`}>
-                <a>{post.title}</a>
-              </Link>
-            </h2>
-
-            <p>{post.description}</p>
-          </div>
+      <div className="flex w-full max-w-2xl relative mx-auto pt-8 pb-8 sm:pb-16">
+        {posts.map((post, index) => (
+          <BlogPostCard key={index} post={post} />
         ))}
       </div>
     </div>
@@ -35,7 +30,7 @@ export default Blogs;
 
 // get posts from serverside at build time
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = getAllPosts(["title", "slug", "date", "description"]);
+  const posts = getAllPosts(["title", "slug", "date", "description", "tags"]);
 
   // retunr the posts props
   return { props: { posts } };
