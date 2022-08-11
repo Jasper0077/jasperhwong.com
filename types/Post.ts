@@ -6,4 +6,6 @@ export interface Post {
   author?: Array<Author>;
   title?: string;
   description?: string;
+  tags?: Array<string>;
+  test: string;
 }
