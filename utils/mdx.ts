@@ -46,11 +46,10 @@ export function getPostItems(filePath: string, fields: string[] = []): Items {
       items[field] = content;
     }
     if (data[field]) {
-      // verify the fileds has data
+      // verify the fields has data
       items[field] = data[field];
     }
   });
-
   return items;
 }
 
