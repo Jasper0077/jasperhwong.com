@@ -1,9 +1,8 @@
 import React from "react";
-import Link from "next/link";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="flex flex-col justify-center max-w-4xl mx-auto mb-16 w-full">
+    <footer className="flex flex-col justify-center max-w-2xl mx-auto mb-16 w-full">
       <hr className="w-full border-1 border-gray-200 dark:border-gray-800 mb-8" />
       <div className="flex items-start justify-center px-16 space-x-8">
         <a href="https://github.com/jasper0077">
