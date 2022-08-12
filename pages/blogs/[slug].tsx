@@ -14,10 +14,11 @@ type Props = {
 
 const PostPage: React.FC<Props> = ({ source, frontMatter }: Props) => {
   return (
-    <div>
-      <article className="prose prose-green">
-        <h1>{frontMatter.title}</h1>
-        <p>{frontMatter.description}</p>
+    <div className="flex flex-col items-start justify-start mx-auto px-8 my-8">
+      <article>
+        <h1 className="flex w-full max-w-2xl relative text-4xl font-bold mx-auto pt-8 pb-8 sm:pb-16">
+          {frontMatter.title}
+        </h1>
         <MDXRemote {...source} />
       </article>
     </div>
