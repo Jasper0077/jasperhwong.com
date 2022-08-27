@@ -7,4 +7,93 @@ date: "2022-08-11"
 tags: ["React", "mdx", "Next.js"]
 ---
 
-<h1 className="text-center text-lg">Hello World!</h1>
+This idea at first was to create my own personal website, and I came across seeing lots of people using MDX in their portfolio website.
+
+# But, what is MDX?
+
+MDX is a combination of JSX (TSX) and MD (Markdown). 
+As usual, we can do `import` and `export` in `.mdx` file and we can write [link](https://mdxjs.com/docs/what-is-mdx/).
+We can add `components` into our `.mdx` pages, like:
+```
+<Sparkles />
+```
+
+<Sparkles />
+
+# Benchmarking...
+
+If you are considering, using `mdx` into your project, there are several ways to do it. This section will walk you through all the workarounds,
+and you will know what's the best option for your preferences.
+
+## next/mdx
+
+If you are using [Next.js](https://nextjs.org/) like I do, `next/mdx` could be a good choice for you.
+
+### Configuration
+
+The configuration is pretty simple, you need to first install the packages
+```
+npm install @next/mdx @mdx-js/loader
+```
+
+And add the following to `next.config.js`.
+```js
+// next.config.js
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+  options: {
+  remarkPlugins: [],
+  rehypePlugins: [],
+  // If you use `MDXProvider`, uncomment the following line.
+  // providerImportSource: "@mdx-js/react",
+  },
+})
+module.exports = withMDX({
+  // Append the default value with md extensions
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+})
+```
+
+Then, it should work with `.mdx` files.
+
+I like how components can be easily imported into `.mdx`. You just have to do something like this:
+```
+import { MyComponent } from "my-components";
+
+# My MDX page
+
+This is a list in markdown:
+
+- One
+- Two
+- Three
+
+Checkout my React component:
+
+<MyComponent />
+```
+
+### Frontmatter
+Frontmatter is a YAML like key/value pairing that can be used to store data about a page. 
+Well, `@next/mdx` does not support frontmatter by default, though there are many solutions for adding frontmatter to your MDX content, such as gray-matter.
+
+# next-mdx-remote
+By the time, I started exploring a solution for **Frontmatter**, I saw `next-mdx-remote` by [Hashicorp](). 
+`next-dx-remote` gets the content, render a static version and hydrate it back during render.
+We can keep our frontmatter, but we need to drop anything else. But, to import components, you have to do it differently.
+We need to pass the components to the context, and components will be passed down to the `.mdx` pages. It does support (next/dynamic)[],
+to improve the performance. But, I don't like the idea of dumping every single component into the global context, and we cherry-pick the
+components that we want to use, by `import` in each of the `.mdx` pages.
+
+
+
+
+
+
+
+
+
+
+
+
+
