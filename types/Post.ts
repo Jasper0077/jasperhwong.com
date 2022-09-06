@@ -9,3 +9,12 @@ export interface Post {
   tags?: Array<string>;
   test: string;
 }
+
+export interface PostMeta {
+  slug: string;
+  title: string;
+  author?: Array<Author>;
+  description?: string;
+  date?: string | Date;
+  tags?: Array<string>;
+}
