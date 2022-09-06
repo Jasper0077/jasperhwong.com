@@ -18,7 +18,7 @@ const BlogPostCard = (props: CardProps) => {
         </h4>
         <div className="col-span-3 flex flex-col sm:flex-row gap-2">
           <p className="font-light text-sm col-span-2 text-gray-400 dark:text-gray-200 my-auto">
-            Last Edited: {post.date}
+            {`Last Edited: ${post.date}`}
           </p>
           <div className="space-x-2">
             <Tag tags={post.tags} />
