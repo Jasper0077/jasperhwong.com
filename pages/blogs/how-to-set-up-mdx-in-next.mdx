@@ -1,6 +1,8 @@
 ---
 slug: "how-to-set-up-mdx-in-next"
 title: "How to set up MDX in Nextjs"
+author: "Jasper Hwong"
+date: "2022-09-07T14:34:32.999Z"
 ---
 
 This idea at first was to create my own personal website, and I came across seeing lots of people using MDX in their portfolio website.
@@ -16,7 +18,7 @@ We can add `components` into our `.mdx` pages, like:
 
 <Sparkles />
 
-# Benchmarking...
+# Benchmarking
 
 If you are considering, using `mdx` into your project, there are several ways to do it. This section will walk you through all the workarounds,
 and you will know what's the best option for your preferences.
@@ -82,7 +84,7 @@ Checkout my React component:
 Frontmatter is a YAML like key/value pairing that can be used to store data about a page. 
 Well, `@next/mdx` does not support frontmatter by default, though there are many solutions for adding frontmatter to your MDX content, such as gray-matter.
 
-# next-mdx-remote
+## next-mdx-remote
 By the time, I started exploring a solution for **Frontmatter**, I saw `next-mdx-remote` by [Hashicorp](https://github.com/hashicorp
 ). 
 `next-mdx-remote` gets the content, render a static version and hydrate it back during render.
@@ -93,32 +95,40 @@ to improve the performance.
 
 But, I don't like the idea of dumping every single component into the global context, even though it provides you a granular control over your components.
 
-# next-mdx-enhanced
+## next-mdx-enhanced
 This package is considered deprecated, and the team is migrating to `next-mdx-remote` by even enhancing it.
 
 
-### Styling
-Few options are out there for styling:
+# Styling
+Few options are out there for styling your `mdx`.
 
-- Tailwindcss
+## Tailwindcss
 
 This library is one of the hottest css framework that you might heard of most recently, it changed the way of how we use css.
 It provides a list of css utility classes for user to define the intended css properties underhood. But, styling with this within your project,
-can be less readable and you might ended up with something like this:
+can be less readable. But, if you are considering building something from scratch which is highly customizable, it is the right option for you.
+I use heavily with Tailwindcss over the other options (even though I used some of them in my project) is solely because I want to learn css.
+It's very convenient to style your `mdx` blogs. Say, we might have something like this, the blog source will be first
+compiled down though to `html` from `mdx` then be passed into the `MDXRemote` context provider. So, I use `@tailwindcss/typography` which provides
+all ready-to-use css setting to format typography in just a single magic css class: `prose`.
 
-```html
-  <h1 className="flex w-full max-w-2xl relative text-4xl font-bold mx-auto pt-8 pb-8 sm:pb-16">
-    Technical articles
-  </h1>
+```jsx
+  <section
+    className={cn(
+      "prose dark:prose-dark prose-sm sm:prose-base lg:prose-lg \
+    text-justify max-w-2xl mx-auto mb-16"
+    )}
+  >
+    <MDXRemote {...source} components={components} />
+  </section>
 ```
 
-But, if you are considering building something from scratch which is highly customizable, it is the right option for you.
-I use heavily with Tailwindcss over the other options (even though I used some of them in my project) is solely because I want to learn css.
-
-- Theme-UI
+## Theme-UI
 
 I believe this is one of the best solution out there which is highly compatibile with `mdx`. It's a Component based css framework, which provides
 bunch of readily components which can be also overwritten by passing `props` to customize it.
+
+## Styled-components
 
 
 
