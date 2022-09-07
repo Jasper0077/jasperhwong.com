@@ -63,6 +63,12 @@ html {
   }
 }
 
+.prose h1,
+h2,
+h3 {
+  @apply text-gray-900 dark:text-gray-200;
+}
+
 .prose .anchor {
   @apply absolute invisible no-underline;
 
