@@ -81,6 +81,10 @@ html {
   @apply transition-all;
 }
 
+.prose p {
+  @apply text-gray-700 dark:text-gray-400;
+}
+
 .prose .anchor:after {
   @apply text-gray-300 dark:text-gray-700;
   content: "#";

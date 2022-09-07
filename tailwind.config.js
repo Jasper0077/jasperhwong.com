@@ -35,6 +35,7 @@ module.exports = {
               code: { color: theme("colors.blue.400") }
             },
             "h2,h3,h4": {
+              color: theme("colors.gray.900"),
               "scroll-margin-top": spacing[32]
             },
             thead: {
