@@ -15,7 +15,7 @@ interface SparkleProps {
 
 interface props {
   color?: string;
-  children?: string;
+  children?: JSX.Element | string;
   delegated?: {
     [x: string]: any;
   };
@@ -30,8 +30,8 @@ const generateSparkle = (color: string) => {
     color,
     size: random(15, 25),
     style: {
-      top: random(25, 35) + "%",
-      left: random(25, 85) + "%"
+      top: random(0, 100) + "%",
+      left: random(0, 100) + "%"
     }
   };
   return sparkle;
@@ -101,8 +101,8 @@ const spin = keyframes`
   }
 `;
 const Wrapper = styled.span`
-  display: inline-block;
   positive: relative;
+  display: inline-block;
 `;
 
 const SparkleWrapper = styled.span`
