@@ -31,29 +31,27 @@ const PostPage: React.FC<Props> = ({
   readingTime
 }: Props) => {
   return (
-    <>
-      <article className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
-        <h1 className="text-5xl font-bold mx-auto pt-8 pb-8 sm:pb-4 dark:text-white">
-          {frontMatter.title}
-        </h1>
-        <div className="flex flex-col items-start justify-between w-full mt-2 mb-20 md:flex-row md:items-center">
-          <p className="ml-2 text-sm text-orange-600 dark:text-orange-400 italic font-semibold">
-            {"Jasper Hwong / "}
-            {format(parseISO(frontMatter.date), "MMM dd, yyyy")}
-          </p>
-          <p className="mt-2 text-sm text-orange-600 dark:text-orange-400 min-w-32 md:mt-0 italic font-semibold">
-            {wordCount} words {"  •  "} {readingTime}
-          </p>
-        </div>
-        <section
-          className={cn(
-            "prose dark:prose-invert sm:prose-base prose-lg text-justify"
-          )}
-        >
-          <MDXRemote {...source} components={components} />
-        </section>
-      </article>
-    </>
+    <article className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
+      <h1 className="text-5xl font-bold mx-auto pt-8 pb-8 sm:pb-4 dark:text-white">
+        <Sparkles>{frontMatter.title}</Sparkles>
+      </h1>
+      <div className="flex flex-col items-start justify-between w-full mt-2 mb-20 md:flex-row md:items-center">
+        <p className="text-sm text-orange-600 dark:text-orange-400 italic font-semibold">
+          {"Jasper Hwong / "}
+          {format(parseISO(frontMatter.date), "MMM dd, yyyy")}
+        </p>
+        <p className="mt-2 text-sm text-orange-600 dark:text-orange-400 min-w-32 md:mt-0 italic font-semibold">
+          {wordCount} words {"  •  "} {readingTime}
+        </p>
+      </div>
+      <section
+        className={cn(
+          "prose dark:prose-invert 2xl:prose-xl lg:prose-lg sm:prose-sm text-justify w-full max-w-2xl"
+        )}
+      >
+        <MDXRemote {...source} components={components} />
+      </section>
+    </article>
   );
 };
 
