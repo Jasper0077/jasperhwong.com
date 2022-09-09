@@ -6,7 +6,7 @@ import { posts } from "../../data/posts";
 // component render function
 const Blogs: NextPage = () => {
   return (
-    <div className="flex flex-col justify-center px-8 my-8">
+    <div className="flex flex-col justify-center px-4 my-8">
       <h1 className="flex w-full max-w-2xl relative text-4xl font-bold mx-auto pt-8 pb-8 sm:pb-16">
         Technical articles
       </h1>

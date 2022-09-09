@@ -7,11 +7,11 @@ import { MdxComponentsProvider } from "../contexts/mdxContext";
 function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class">
-      <MdxComponentsProvider>
-        <Container>
+      <Container>
+        <MdxComponentsProvider>
           <Component {...pageProps} />
-        </Container>
-      </MdxComponentsProvider>
+        </MdxComponentsProvider>
+      </Container>
     </ThemeProvider>
   );
 }

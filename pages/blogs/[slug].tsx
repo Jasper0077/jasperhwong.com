@@ -1,12 +1,11 @@
-import { serialize } from "next-mdx-remote/serialize";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import cn from "classnames";
 import dynamic from "next/dynamic";
 import { Post } from "../../types/Post";
 import { getPost, getAllPosts, mdxToHtml } from "../../utils/mdx";
 import { ParsedUrlQuery } from "querystring";
 import { format, parseISO } from "date-fns";
+import { Suspense } from "react";
 
 //components
 const Sparkles = dynamic(() => import("../../components/Sparkles"));
@@ -32,25 +31,27 @@ const PostPage: React.FC<Props> = ({
 }: Props) => {
   return (
     <article className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
-      <h1 className="text-5xl font-bold mx-auto pt-8 pb-8 sm:pb-4 dark:text-white">
-        <Sparkles>{frontMatter.title}</Sparkles>
+      <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
+        {frontMatter.title}
       </h1>
-      <div className="flex flex-col items-start justify-between w-full mt-2 mb-20 md:flex-row md:items-center">
-        <p className="text-sm text-orange-600 dark:text-orange-400 italic font-semibold">
-          {"Jasper Hwong / "}
-          {format(parseISO(frontMatter.date), "MMM dd, yyyy")}
-        </p>
-        <p className="mt-2 text-sm text-orange-600 dark:text-orange-400 min-w-32 md:mt-0 italic font-semibold">
-          {wordCount} words {"  •  "} {readingTime}
+      <div className="flex flex-col items-start justify-between w-full mt-2 md:flex-row md:items-center">
+        <div className="flex items-center">
+          <p className="ml-2 text-sm text-gray-700 dark:text-gray-300">
+            {"Jasper Hwong / "}
+            {format(parseISO(frontMatter.date), "MMMM dd, yyyy")}
+          </p>
+        </div>
+        <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 min-w-32 md:mt-0">
+          {wordCount} words
+          {` • `}
+          {readingTime}
         </p>
       </div>
-      <section
-        className={cn(
-          "prose dark:prose-invert 2xl:prose-xl lg:prose-lg sm:prose-sm text-justify w-full max-w-2xl"
-        )}
-      >
-        <MDXRemote {...source} components={components} />
-      </section>
+      <Suspense fallback={null}>
+        <div className="w-full mt-4 prose dark:prose-invert max-w-none">
+          <MDXRemote components={components} {...source} />
+        </div>
+      </Suspense>
     </article>
   );
 };

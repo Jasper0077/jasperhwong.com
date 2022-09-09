@@ -28,6 +28,14 @@ html {
   scroll-behavior: smooth;
 }
 
+.col-3cm {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
 #__next {
   @apply bg-gray-50 dark:bg-gray-900;
   display: flex;
