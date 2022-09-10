@@ -23,17 +23,18 @@
   color: #fefefe;
 }
 
+code {
+  position: relative;
+}
+
 html {
   min-width: 360px;
   scroll-behavior: smooth;
 }
 
-.col-3cm {
-  overflow-x: hidden;
-}
-
-body {
-  overflow-x: hidden;
+article,
+main {
+  position: relative;
 }
 
 #__next {

@@ -6,9 +6,9 @@ export default function Document() {
       <Head>
         <link
           rel="preload"
-          href="/fonts/ibm-plex-sans-var.woff2"
+          href="/fonts/ubuntu-regular.ttf"
           as="font"
-          type="font/woff2"
+          type="font/ttf"
           crossOrigin="anonymous"
         />
         <link href="/static/favicons/favicon.ico" rel="shortcut icon" />
