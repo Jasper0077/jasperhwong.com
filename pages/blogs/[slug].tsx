@@ -48,7 +48,7 @@ const PostPage: React.FC<Props> = ({
         </p>
       </div>
       <Suspense fallback={null}>
-        <div className="prose dark:prose-invert w-full max-w-none">
+        <div className="w-full prose dark:prose-invert mt-4 max-w-none">
           <MDXRemote components={components} {...source} />
         </div>
       </Suspense>
