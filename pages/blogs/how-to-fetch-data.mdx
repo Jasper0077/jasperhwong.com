@@ -1,0 +1,18 @@
+# Data Fetching
+In a Next.js context, Next.js allows you to fetch data in multiple ways. Namely,
+1. SSR - Server-side Rendering
+  If you export a function called `getServerSideProps` (Server-Side Rendering) from a page, 
+  Next.js will pre-render this page on each request using the data returned by `getServerSideProps`.
+  Next.js did something differently, `getServerSideProps` will be run on the server side upon user request at request time.
+  So, after pre-rendering, data will be returned by `getServerSideProps`. In that sense, you can only export `getServerSideProps`
+  from `/pages` and nothing more.
+
+  We use it when we need some data at request time, e.g. authorization headers or geo-location. [For more](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props)
+
+
+2. SSG - Static-site Generation
+3. CSR - Client Side Rendering
+4. Dynamic Routing
+5. ISR - Incremental Static Regeneration
+
+
