@@ -7,7 +7,10 @@ import { ParsedUrlQuery } from "querystring";
 import { format, parseISO } from "date-fns";
 import { Suspense } from "react";
 
-//components
+// workaround while waiting author to migrate components to support mdx V2
+import { CodeSandbox } from "mdx-embed/dist/components/codesandbox";
+
+// components
 const Sparkles = dynamic(() => import("../../components/Sparkles"));
 
 // props type
@@ -20,7 +23,8 @@ type Props = {
 
 // bootstrapping components
 export const components = {
-  Sparkles
+  Sparkles,
+  CodeSandbox
 };
 
 const PostPage: React.FC<Props> = ({
