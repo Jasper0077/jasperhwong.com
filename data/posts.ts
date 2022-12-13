@@ -17,5 +17,18 @@ export const posts: Array<Post> = [
       "This article will guide you how to set up mdx in a nextjs environment from zero to hero",
     date: "2022-08-11",
     tags: ["React", "mdx", "Next.js"]
+  },
+  {
+    slug: "wrapping-up-2022",
+    title: "Wrapping Up 2022",
+    author: [
+      {
+        name: "Jasper Hwong",
+        github: "Jasper0077"
+      }
+    ],
+    description: "A Recap of what I have learned in 2022...",
+    date: "2022-12-13",
+    tags: ["React", "mdx", "Next.js", "Leetcode", "AWS", "Kubernetes"]
   }
 ];
