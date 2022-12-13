@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "types": "module",
   "dependencies": {
     "@mdx-js/loader": "^2.1.2",
     "@splinetool/react-spline": "^2.2.1",
@@ -18,6 +19,7 @@
     "date-fns": "^2.29.2",
     "file-loader": "^6.2.0",
     "gray-matter": "^4.0.3",
+    "mdx-embed": "^1.1.2",
     "next": "12.2.3",
     "next-mdx-remote": "^4.1.0",
     "next-themes": "^0.2.0",
