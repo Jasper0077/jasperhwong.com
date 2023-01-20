@@ -42,7 +42,7 @@ const PostPage: React.FC<Props> = ({
         <div className="flex items-center">
           <p className="text-sm text-gray-700 dark:text-gray-300">
             {"Jasper Hwong / "}
-            {format(parseISO(frontMatter.date), "MMMM dd, yyyy")}
+            {format(frontMatter.date, "MMMM dd, yyyy")}
           </p>
         </div>
         <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 min-w-32 md:mt-0">
