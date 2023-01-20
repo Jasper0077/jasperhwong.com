@@ -4,7 +4,6 @@ import dynamic from "next/dynamic";
 import { Post } from "../../types/Post";
 import { getPost, getAllPosts, mdxToHtml } from "../../utils/mdx";
 import { ParsedUrlQuery } from "querystring";
-import { format, parseISO } from "date-fns";
 import { Suspense } from "react";
 
 // workaround while waiting author to migrate components to support mdx V2
@@ -41,8 +40,7 @@ const PostPage: React.FC<Props> = ({
       <div className="flex flex-col items-start justify-between w-full mt-2 md:flex-row md:items-center">
         <div className="flex items-center">
           <p className="text-sm text-gray-700 dark:text-gray-300">
-            {"Jasper Hwong / "}
-            {format(frontMatter.date, "MMMM dd, yyyy")}
+            {`${frontMatter.author} / ${frontMatter.date}`}
           </p>
         </div>
         <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 min-w-32 md:mt-0">
