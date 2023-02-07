@@ -7,7 +7,7 @@
   font-style: normal;
   font-weight: 100 900;
   font-display: optional;
-  src: url(/fonts/ubuntu-regular.ttf) format("ttf");
+  src: url(/fonts/futura-regular.ttf) format("ttf");
 }
 
 @font-face {
@@ -15,7 +15,7 @@
   font-style: italic;
   font-weight: 100 900;
   font-display: optional;
-  src: url(/fonts/ubuntu-regular-italic.ttf) format("ttf");
+  src: url(/fonts/futura-italic.ttf) format("ttf");
 }
 
 ::selection {
