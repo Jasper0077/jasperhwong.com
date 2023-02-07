@@ -6,7 +6,7 @@ export default function Document() {
       <Head>
         <link
           rel="preload"
-          href="/fonts/ubuntu-regular.ttf"
+          href="/fonts/future-regular.ttf"
           as="font"
           type="font/ttf"
           crossOrigin="anonymous"
