@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "concurrently \"yarn run dev\" \"yarn run storybook\"",
     "lint": "next lint",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -57,6 +57,7 @@
     "@typescript-eslint/eslint-plugin": "^5.31.0",
     "autoprefixer": "^10.4.7",
     "babel-loader": "^8.3.0",
+    "concurrently": "^7.6.0",
     "eslint": "8.20.0",
     "eslint-config-next": "12.2.3",
     "eslint-config-prettier": "^8.5.0",
