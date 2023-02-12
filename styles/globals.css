@@ -2,8 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-text: hsl(210deg 10% 90% / 1);
+  --color-background: hsl(210deg 15% 6% / 1);
+  --color-blurred-background: hsl(210deg 15% 6% / 0.75);
+  --color-action: hsl(240deg 95% 62% / 1);
+  --color-primary: hsl(225deg 100% 75% / 1);
+  --color-secondary: hsl(333deg 100% 55% / 1);
+  --color-tertiary: hsl(280deg 100% 85% / 1);
+  --color-decorative: hsl(200deg 50% 60% / 1);
+  --color-info: hsl(225deg 100% 80% / 1);
+  --color-info-background: hsl(225deg 100% 80% / 0.1);
+  --color-error: hsl(340deg 95% 60% / 1);
+}
+
 @font-face {
-  font-family: "Ubuntu";
+  font-family: "Futura";
   font-style: normal;
   font-weight: 100 900;
   font-display: optional;
@@ -11,7 +25,7 @@
 }
 
 @font-face {
-  font-family: "Ubuntu";
+  font-family: "Futura";
   font-style: italic;
   font-weight: 100 900;
   font-display: optional;
@@ -25,6 +39,9 @@
 
 code {
   position: relative;
+  font-family: "Source Code Pro", "Fira Mono", monospace;
+  padding: 3px 6px;
+  @apply rounded bg-light-blue dark:bg-dark-gray text-gray-700;
 }
 
 html {
@@ -38,7 +55,7 @@ main {
 }
 
 #__next {
-  @apply bg-gray-50 dark:bg-gray-900;
+  @apply bg-gray-50 dark:bg-gray-600;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -78,6 +95,22 @@ h3 {
   @apply text-gray-900 dark:text-gray-200;
 }
 
+.prose h1 a,
+.prose h2 a,
+.prose h3 a,
+.prose h4 a {
+  text-decoration: none;
+  box-shadow: none;
+}
+
+.prose h1 a:hover,
+.prose h2 a:hover,
+.prose h3 a:hover,
+.prose h4 a:hover {
+  text-decoration: none;
+  box-shadow: none;
+}
+
 .prose .anchor {
   @apply absolute invisible no-underline;
 
@@ -93,10 +126,27 @@ h3 {
 }
 
 .prose a {
-  @apply transition-all;
+  text-decoration: none;
+  box-shadow: 0px 1.5px 0px var(--color-primary);
+  transition: box-shadow 200ms ease 0s;
+  will-change: transform;
+  -webkit-box-decoration-break: clone;
+  @apply text-gray-700 dark:text-gray-400;
+}
+
+.prose a:hover {
+  box-shadow: none;
+  text-decoration: none;
+  transition: box-shadow 200ms ease 0s;
+  will-change: transform;
+  -webkit-box-decoration-break: clone;
 }
 
 .prose p {
+  @apply text-gray-700 dark:text-gray-400;
+}
+
+.prose li {
   @apply text-gray-700 dark:text-gray-400;
 }
 
@@ -107,19 +157,6 @@ h3 {
 
 .prose *:hover > .anchor {
   @apply visible;
-}
-
-.prose pre {
-  @apply border border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-900;
-}
-
-.prose code {
-  @apply text-gray-800 dark:text-gray-200 px-1 py-0.5 border border-gray-100 dark:border-gray-800 rounded-lg bg-gray-100 dark:bg-gray-900;
-}
-
-.prose pre code {
-  @apply text-gray-800 dark:text-gray-200 p-0;
-  border: initial;
 }
 
 .prose img {
@@ -133,15 +170,30 @@ h3 {
   margin-bottom: 1.25em !important;
 }
 
+/* Code */
+
+.prose pre {
+  @apply rounded-lg dark:bg-dark-gray bg-light-blue;
+}
+
+.prose code {
+  @apply text-gray-800 dark:text-gray-200;
+}
+
+.prose pre code {
+  @apply text-gray-800 dark:text-gray-200 p-0;
+  border: initial;
+}
+
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  @apply text-gray-700 dark:text-gray-300;
+  @apply text-gray-500 dark:text-gray-300;
 }
 
 .token.punctuation {
-  @apply text-gray-700 dark:text-gray-300;
+  @apply text-gray-700 dark:text-gray-100;
 }
 
 .token.property,
@@ -151,7 +203,7 @@ h3 {
 .token.constant,
 .token.symbol,
 .token.deleted {
-  @apply text-green-500;
+  @apply text-day-pink dark:text-night-pink;
 }
 
 .token.selector,
@@ -160,7 +212,7 @@ h3 {
 .token.char,
 .token.builtin,
 .token.inserted {
-  @apply text-purple-500;
+  @apply text-day-purple dark:text-night-purple;
 }
 
 .token.operator,
@@ -168,24 +220,24 @@ h3 {
 .token.url,
 .language-css .token.string,
 .style .token.string {
-  @apply text-yellow-500;
+  @apply text-day-purple dark:text-night-purple;
 }
 
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  @apply text-blue-500;
+  @apply text-day-purple dark:text-night-purple;
 }
 
 .token.function,
 .token.class-name {
-  @apply text-pink-500;
+  @apply text-day-blue dark:text-night-blue;
 }
 
 .token.regex,
 .token.important,
 .token.variable {
-  @apply text-yellow-500;
+  @apply text-gray-700 dark:text-gray-300;
 }
 
 code[class*="language-"],

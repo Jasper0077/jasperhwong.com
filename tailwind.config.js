@@ -17,11 +17,20 @@ module.exports = {
           600: "#444444",
           700: "#333333",
           800: "#222222",
-          900: "#111111"
-        }
+          900: "#0D0F12"
+        },
+        // for code
+        "dark-gray": "#13171B",
+        "light-blue": "#E6E8F0",
+        "day-purple": "#661FFF",
+        "night-purple": "#9A6BFF",
+        "night-pink": "#FF38F9",
+        "night-blue": "#00BFFF",
+        "day-blue": "#3E5BFE",
+        "day-pink": "#DB0079"
       },
       fontFamily: {
-        sans: ["Ubuntu", ...fontFamily.sans]
+        sans: ["Futura", ...fontFamily.sans]
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -40,9 +49,13 @@ module.exports = {
             thead: {
               borderBottomColor: theme("colors.gray.200")
             },
-            code: { color: theme("colors.pink.500") },
-            "blockquote p:first-of-type::before": false,
-            "blockquote p:last-of-type::after": false
+            "code::before": {
+              content: "none" // don’t generate the pseudo-element
+              //                content: '""', // this is an alternative: generate pseudo element using an empty string
+            },
+            "code::after": {
+              content: "none"
+            }
           }
         },
         dark: {
