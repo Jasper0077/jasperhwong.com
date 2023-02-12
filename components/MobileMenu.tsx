@@ -54,7 +54,9 @@ export default function MobileMenu() {
             style={{ transitionDelay: "150ms" }}
           >
             <Link href="/">
-              <a className="flex w-auto pb-4">Home</a>
+              <a onClick={toggleMenu} className="flex w-auto pb-4">
+                Home
+              </a>
             </Link>
           </li>
           <li
@@ -62,7 +64,9 @@ export default function MobileMenu() {
             style={{ transitionDelay: "200ms" }}
           >
             <Link href="/about">
-              <a className="flex w-auto pb-4">About</a>
+              <a onClick={toggleMenu} className="flex w-auto pb-4">
+                About
+              </a>
             </Link>
           </li>
           <li
@@ -70,7 +74,9 @@ export default function MobileMenu() {
             style={{ transitionDelay: "250ms" }}
           >
             <Link href="/blogs">
-              <a className="flex w-auto pb-4">Blogs</a>
+              <a onClick={toggleMenu} className="flex w-auto pb-4">
+                Blogs
+              </a>
             </Link>
           </li>
           <li
@@ -78,7 +84,9 @@ export default function MobileMenu() {
             style={{ transitionDelay: "275ms" }}
           >
             <Link href="/snippets">
-              <a className="flex w-auto pb-4">Snippets</a>
+              <a onClick={toggleMenu} className="flex w-auto pb-4">
+                Snippets
+              </a>
             </Link>
           </li>
         </ul>
