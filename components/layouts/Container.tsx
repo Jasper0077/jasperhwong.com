@@ -31,11 +31,22 @@ function NavItem({ href, text }: NavItemProps) {
         className={cn(
           isActive
             ? "font-semibold text-gray-800 dark:text-gray-200"
-            : "font-normal text-gray-600 dark:text-gray-400",
-          "hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all"
+            : "font-normal text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-800",
+          "hidden md:inline-block p-1 mx-1 sm:px-3 sm:py-2 rounded-lg transition-opacity"
         )}
       >
-        <span className="capsize">{text}</span>
+        <span className="capsize">
+          <p
+            style={{
+              boxShadow: isActive
+                ? "0px 1.5px 0px var(--color-primary)"
+                : "none"
+            }}
+            className={"hover:no-shadow"}
+          >
+            {text}
+          </p>
+        </span>
       </a>
     </NextLink>
   );
@@ -86,10 +97,12 @@ export default function Container({ children, customMeta }: ContainerProps) {
           </a>
           <div className="ml-[-0.60rem]">
             <MobileMenu />
-            <NavItem href="/" text="Home" />
-            <NavItem href="/about" text="About" />
-            <NavItem href="/blogs" text="Blogs" />
-            <NavItem href="/snippets" text="Snippets" />
+            <div className="flex flex-wrap mx-2">
+              <NavItem href="/" text="Home" />
+              <NavItem href="/about" text="About" />
+              <NavItem href="/blogs" text="Blogs" />
+              <NavItem href="/snippets" text="Snippets" />
+            </div>
           </div>
           <button
             aria-label="Toggle Dark Mode"
