@@ -1,30 +1,37 @@
 import React from "react";
 
 export interface DropdownItemProps {
+  variant?: "a" | "div";
   children: React.ReactNode;
+  href?: string;
   onClick?: () => void;
 }
 
 export interface DropdownProps {
-  label: string;
+  text: string;
   children: React.ReactNode;
 }
 
 export const DropdownItem: React.FC<DropdownItemProps> = ({
+  variant,
   children,
+  href,
   onClick
 }) => {
+  const Tag = variant || "div";
+
   return (
-    <div
+    <Tag
       className="px-2 py-2 hover:bg-gray-200 cursor-pointer"
+      href={href}
       onClick={onClick}
     >
       {children}
-    </div>
+    </Tag>
   );
 };
 
-const Dropdown = ({ label, children }: DropdownProps) => {
+const Dropdown = ({ text, children }: DropdownProps) => {
   const [isOpen, setIsOpen] = React.useState(true);
 
   React.useEffect(() => {
@@ -36,11 +43,12 @@ const Dropdown = ({ label, children }: DropdownProps) => {
       <button
         id="dropdownDefaultButton"
         data-dropdown-toggle="dropdown"
-        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        aria-label="Dropdown"
+        className="dark:text-white text-grey-200 focus:ring-4 focus:ring-white focus:outline-none font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center hover:bg-gray-200 dark:hover:bg-gray-800 : transition-all"
         type="button"
         onClick={() => setIsOpen(!isOpen)}
       >
-        {label}
+        {text}
         <svg
           className="w-4 h-4 ml-2"
           aria-hidden="true"
