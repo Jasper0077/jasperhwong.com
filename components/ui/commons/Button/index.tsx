@@ -1,12 +1,10 @@
-import { VariantProps } from "class-variance-authority";
+import { cva, VariantProps } from "class-variance-authority";
 
 export interface ButtonProps extends VariantProps<typeof buttonStyles> {
   variant?: "primary" | "secondary";
   size?: "small" | "medium";
   children: React.ReactNode;
 }
-
-import { cva } from "class-variance-authority";
 
 export const buttonStyles = cva("rounded px-2 mx-2", {
   variants: {
