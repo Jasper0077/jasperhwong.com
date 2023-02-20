@@ -36,6 +36,8 @@
     "rehype-prism-plus": "^1.5.0",
     "rehype-slug": "^5.0.1",
     "remark-gfm": "^3.0.1",
+    "slate": "^0.91.1",
+    "slate-react": "^0.91.1",
     "styled-components": "^5.3.5",
     "use-delayed-render": "^0.0.7",
     "use-sound": "^4.0.1"
