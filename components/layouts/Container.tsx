@@ -101,7 +101,7 @@ export default function Container({ children, customMeta }: ContainerProps) {
               <NavItem href="/" text="Home" />
               <NavItem href="/about" text="About" />
               <NavItem href="/blogs" text="Blogs" />
-              <NavItem href="/snippets" text="Snippets" />
+              <NavItem href="/collections" text="Collections" />
             </div>
           </div>
           <button
