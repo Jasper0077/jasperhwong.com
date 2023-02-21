@@ -1,9 +1,15 @@
 import { Element } from "slate";
 
-const initialValue: Element[] = [
+export const initialValue: Element[] = [
   {
     type: "paragraph",
-    children: [{ text: "A line of text in a paragraph." }]
+    children: [
+      { text: "Hello World! This is my paragraph inside a sample document." },
+      { text: "Bold text.", bold: true },
+      { text: "Italic text.", italic: true },
+      { text: "Bold and underlined text.", bold: true, underline: true },
+      { text: "variableFoo", code: true }
+    ]
   }
 ];
 
