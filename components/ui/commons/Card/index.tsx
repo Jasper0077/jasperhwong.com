@@ -7,8 +7,8 @@ export interface CardProps {
 const Card = ({ children }: CardProps) => {
   return (
     <div
-      className="max-w-md bg-light-blue dark:bg-dark-gray rounded-lg shadow 
-      dark:border-gray-200 border-dark-gray p-4"
+      className="max-w-md bg-gray-200 dark:bg-gray-700 rounded-lg shadow 
+      dark:border-gray-200 border-gray-700 p-4"
     >
       {children}
     </div>
