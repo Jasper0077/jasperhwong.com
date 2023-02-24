@@ -9,7 +9,7 @@ import {
   ReactEditor,
   RenderLeafProps
 } from "slate-react";
-import Card from "@ui/commons/Card";
+import Card from "@ui/commons/cards/Card";
 import { DefaultElement } from "slate-react";
 import { initialValue } from "utils/editor";
 import cn from "classnames";
