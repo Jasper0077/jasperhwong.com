@@ -6,10 +6,11 @@ export interface ButtonProps extends VariantProps<typeof buttonStyles> {
   children: React.ReactNode;
 }
 
-export const buttonStyles = cva("rounded px-2 mx-2", {
+export const buttonStyles = cva("rounded-lg px-2 mx-2", {
   variants: {
     variant: {
-      primary: "bg-blue-500 text-white border-transparent hover:bg-blue-600",
+      primary:
+        "bg-gray-200 dark:bg-gray-600 text-white border-transparent hover:ring-2 ring-gray-300",
       secondary: [
         "bg-green-500",
         "text-white",

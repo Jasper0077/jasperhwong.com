@@ -8,8 +8,8 @@ import { Url } from "url";
 import Footer from "../Footer";
 import useSound from "use-sound";
 import MobileMenu from "../MobileMenu";
-import Dropdown from "@ui/commons/Dropdown";
 import Navbar from "@ui/commons/Navbar";
+import IconButton from "@ui/commons/buttons/IconButton";
 
 export interface NavItemProps {
   href: Url | string;
@@ -104,12 +104,9 @@ export default function Container({ children, customMeta }: ContainerProps) {
               <NavItem href="/collections" text="Collections" />
             </div>
           </div>
-          <button
-            aria-label="Toggle Dark Mode"
-            type="button"
-            className="w-9 h-9 bg-gray-200 rounded-lg dark:bg-gray-600 
-              flex items-center justify-center  hover:ring-2 ring-gray-300  transition-all"
-            onClick={handleThemeClick}
+          <IconButton
+            handleClick={handleThemeClick}
+            classNames="w-9 h-9 flex items-center justify-center"
           >
             {mounted && (
               <svg
@@ -136,7 +133,7 @@ export default function Container({ children, customMeta }: ContainerProps) {
                 )}
               </svg>
             )}
-          </button>
+          </IconButton>
         </Navbar>
       </div>
       <main
