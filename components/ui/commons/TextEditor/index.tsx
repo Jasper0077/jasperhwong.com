@@ -34,26 +34,26 @@ function renderElement(props: RenderElementProps) {
   }
 }
 
-function renderLeaf({ attributes, children, leaf }: RenderLeafProps) {
-  let el = (
-    <p
-      className={classNames(
-        leaf.bold && "font-bold",
-        leaf.italic && "italic",
-        leaf.underline && "underline",
-        "inline"
-      )}
-    >
-      {children}
-    </p>
-  );
-
+const renderLeaf = ({ children, leaf }: RenderLeafProps) => {
+  let el = <>{children}</>;
   if (leaf.code) {
     el = <code className="inline">{children}</code>;
   }
 
-  return <span className="prose inline">{el}</span>;
-}
+  return (
+    <span
+      className={classNames(
+        leaf.bold && "font-bold",
+        leaf.italic && "italic",
+        leaf.underline && "underline",
+        leaf.code && "prose",
+        "inline"
+      )}
+    >
+      {el}
+    </span>
+  );
+};
 
 export function useEditorConfig(editor: BaseEditor & ReactEditor) {
   return { renderElement };
@@ -72,4 +72,4 @@ const TextEditor = () => {
   );
 };
 
-export default TextEditor;
+export default React.memo(TextEditor);
