@@ -1,9 +1,11 @@
 import { cva, VariantProps } from "class-variance-authority";
+import cn from "classnames";
 
 export interface ButtonProps extends VariantProps<typeof buttonStyles> {
   variant?: "primary" | "secondary";
   size?: "small" | "medium";
   children: React.ReactNode;
+  classNames?: string;
 }
 
 export const buttonStyles = cva("rounded-lg px-2 mx-2", {
@@ -29,11 +31,17 @@ export const buttonStyles = cva("rounded-lg px-2 mx-2", {
   }
 });
 
-export const Button = ({ variant, size, children, ...props }: ButtonProps) => {
+export const Button = ({
+  variant,
+  size,
+  children,
+  classNames,
+  ...props
+}: ButtonProps) => {
   return (
     <button
       type="button"
-      className={buttonStyles({ variant, size })}
+      className={cn(buttonStyles({ variant, size }), classNames)}
       {...props}
     >
       {children}

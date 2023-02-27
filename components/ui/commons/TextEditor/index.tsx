@@ -12,7 +12,6 @@ import {
 import Card from "@ui/commons/cards/Card";
 import { DefaultElement } from "slate-react";
 import { initialValue } from "utils/editor";
-import cn from "classnames";
 import classNames from "classnames";
 
 function renderElement(props: RenderElementProps) {
@@ -58,6 +57,8 @@ const renderLeaf = ({ children, leaf }: RenderLeafProps) => {
 export function useEditorConfig(editor: BaseEditor & ReactEditor) {
   return { renderElement };
 }
+
+const Toolbar = () => {};
 
 const TextEditor = () => {
   const [editor, setEditor] = React.useState(() => withReact(createEditor()));
