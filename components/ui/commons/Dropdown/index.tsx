@@ -1,4 +1,5 @@
 import React from "react";
+import cn from "classnames";
 
 export interface DropdownItemProps {
   variant?: "a" | "div";
@@ -10,6 +11,7 @@ export interface DropdownItemProps {
 export interface DropdownProps {
   text: string;
   children: React.ReactNode;
+  className: string;
 }
 
 export const DropdownItem: React.FC<DropdownItemProps> = ({
@@ -22,7 +24,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
 
   return (
     <Tag
-      className="px-2 py-2 hover:bg-gray-200 cursor-pointer"
+      className={"px-2 py-2 hover:bg-gray-200 cursor-pointer"}
       href={href}
       onClick={onClick}
     >
@@ -31,15 +33,15 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   );
 };
 
-const Dropdown = ({ text, children }: DropdownProps) => {
-  const [isOpen, setIsOpen] = React.useState(true);
+const Dropdown = ({ text, children, className }: DropdownProps) => {
+  const [isOpen, setIsOpen] = React.useState(false);
 
   React.useEffect(() => {
     console.log(isOpen);
   }, [isOpen]);
 
   return (
-    <div className="relative">
+    <div className={cn("relative", className)}>
       <button
         id="dropdownDefaultButton"
         data-dropdown-toggle="dropdown"
@@ -65,7 +67,9 @@ const Dropdown = ({ text, children }: DropdownProps) => {
           ></path>
         </svg>
       </button>
-      {isOpen && <>{children}</>}
+      {isOpen && (
+        <div className="mt-2 rounded z-300 bg-gray-800">{children}</div>
+      )}
     </div>
   );
 };
