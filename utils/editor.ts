@@ -20,13 +20,3 @@ export const initialValue: Element[] = [
     ]
   }
 ];
-
-export const PARAGRAPH_STYLES = [
-  "h1",
-  "h2",
-  "h3",
-  "h4",
-  "paragraph",
-  "multiple"
-];
-export const CHARACTER_STYLES = ["bold", "italic", "underline", "code"];
