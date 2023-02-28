@@ -12,7 +12,10 @@ import {
 import Card from "@ui/commons/cards/Card";
 import { DefaultElement } from "slate-react";
 import { initialValue } from "utils/editor";
+import { CHARACTER_STYLES, PARAGRAPH_STYLES } from "./constants";
 import classNames from "classnames";
+import Dropdown from "../Dropdown";
+import IconButton from "../buttons/IconButton";
 
 function renderElement(props: RenderElementProps) {
   const { element, children, attributes } = props;
@@ -58,18 +61,50 @@ export function useEditorConfig(editor: BaseEditor & ReactEditor) {
   return { renderElement };
 }
 
-const Toolbar = () => {};
+const Toolbar = () => {
+  return (
+    <div className="flex justify-start items-center my-2 space-x-4 z-10">
+      <Dropdown text={PARAGRAPH_STYLES[0]} className="w-24 h-9">
+        {PARAGRAPH_STYLES.map((s, index) => {
+          return (
+            <Dropdown.Item
+              key={s + index}
+              variant="div"
+              onClick={() => console.log("debug", s)}
+            >
+              {s}
+            </Dropdown.Item>
+          );
+        })}
+      </Dropdown>
+      {CHARACTER_STYLES.map(({ style, icon }, index) => {
+        return (
+          <IconButton
+            classNames="rounded w-9 h-9 flex items-center justify-center text-center"
+            key={style + index}
+            handleClick={() => console.log("debug", style)}
+          >
+            {icon}
+          </IconButton>
+        );
+      })}
+    </div>
+  );
+};
 
 const TextEditor = () => {
   const [editor, setEditor] = React.useState(() => withReact(createEditor()));
   const { renderElement } = useEditorConfig(editor);
 
   return (
-    <Card>
-      <Slate editor={editor} value={initialValue}>
-        <Editable renderElement={renderElement} renderLeaf={renderLeaf} />
-      </Slate>
-    </Card>
+    <div className="flex flex-col">
+      <Toolbar />
+      <Card>
+        <Slate editor={editor} value={initialValue}>
+          <Editable renderElement={renderElement} renderLeaf={renderLeaf} />
+        </Slate>
+      </Card>
+    </div>
   );
 };
 
