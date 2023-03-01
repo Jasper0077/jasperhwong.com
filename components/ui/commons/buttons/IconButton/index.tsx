@@ -1,7 +1,8 @@
-import React from "react";
+import React, { DOMAttributes } from "react";
 import cn from "classnames";
 
-export interface IconButtonProps {
+export interface IconButtonProps extends DOMAttributes<HTMLButtonElement> {
+  isActive?: boolean;
   children: React.ReactNode;
   handleClick: () => void;
   ariaLabel?: string;
@@ -9,10 +10,12 @@ export interface IconButtonProps {
 }
 
 const IconButton = ({
+  isActive,
   children,
   handleClick,
   ariaLabel,
-  classNames
+  classNames,
+  ...props
 }: IconButtonProps) => {
   return (
     <button
@@ -20,9 +23,11 @@ const IconButton = ({
       type="button"
       className={cn(
         "bg-gray-200 rounded-lg dark:bg-gray-600 hover:ring-2 ring-gray-300 transition-all",
-        classNames
+        classNames,
+        isActive ? "bg-day-purple dark:bg-night-purple text-white" : ""
       )}
       onClick={handleClick}
+      {...props}
     >
       {children}
     </button>
