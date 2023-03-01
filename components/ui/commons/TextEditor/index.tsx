@@ -1,21 +1,24 @@
-/* eslint-disable prettier/prettier */
-import React from "react";
-import { BaseEditor, createEditor } from "slate";
-import {
-  Slate,
-  Editable,
-  withReact,
-  RenderElementProps,
-  ReactEditor,
-  RenderLeafProps
-} from "slate-react";
-import Card from "@ui/commons/cards/Card";
-import { DefaultElement } from "slate-react";
-import { initialValue } from "utils/editor";
-import { CHARACTER_STYLES, PARAGRAPH_STYLES } from "./constants";
 import classNames from "classnames";
-import Dropdown from "../Dropdown";
-import IconButton from "../buttons/IconButton";
+import React from "react";
+import { BaseEditor, createEditor, Descendant } from "slate";
+import {
+  DefaultElement,
+  Editable,
+  ReactEditor,
+  RenderElementProps,
+  RenderLeafProps,
+  Slate,
+  withReact
+} from "slate-react";
+
+import Card from "@ui/commons/cards/Card";
+import Toolbar from "@ui/commons/TextEditor/Toolbar";
+import useSelection from "hooks/useSelectionChange";
+
+interface TextEditorProps {
+  document: Descendant[];
+  onChange?: (value: Descendant[]) => void;
+}
 
 function renderElement(props: RenderElementProps) {
   const { element, children, attributes } = props;
@@ -60,47 +63,26 @@ const renderLeaf = ({ children, leaf }: RenderLeafProps) => {
 export function useEditorConfig(editor: BaseEditor & ReactEditor) {
   return { renderElement };
 }
-
-const Toolbar = () => {
-  return (
-    <div className="flex justify-start items-center my-2 space-x-4 z-10">
-      <Dropdown text={PARAGRAPH_STYLES[0]} className="w-24 h-9">
-        {PARAGRAPH_STYLES.map((s, index) => {
-          return (
-            <Dropdown.Item
-              key={s + index}
-              variant="div"
-              onClick={() => console.log("debug", s)}
-            >
-              {s}
-            </Dropdown.Item>
-          );
-        })}
-      </Dropdown>
-      {CHARACTER_STYLES.map(({ style, icon }, index) => {
-        return (
-          <IconButton
-            classNames="rounded w-9 h-9 flex items-center justify-center text-center"
-            key={style + index}
-            handleClick={() => console.log("debug", style)}
-          >
-            {icon}
-          </IconButton>
-        );
-      })}
-    </div>
-  );
-};
-
-const TextEditor = () => {
+const TextEditor = ({ document, onChange }: TextEditorProps) => {
   const [editor, setEditor] = React.useState(() => withReact(createEditor()));
+  const { selection, setSelectionOptimized: setSelection } =
+    useSelection(editor);
+
+  const onChangeHandler = React.useCallback(
+    (document: Descendant[]) => {
+      if (onChange) onChange(document);
+      setSelection(editor.selection);
+    },
+    [editor.selection, onChange, setSelection]
+  );
+
   const { renderElement } = useEditorConfig(editor);
 
   return (
     <div className="flex flex-col">
-      <Toolbar />
       <Card>
-        <Slate editor={editor} value={initialValue}>
+        <Toolbar selection={selection} />
+        <Slate editor={editor} value={document} onChange={onChangeHandler}>
           <Editable renderElement={renderElement} renderLeaf={renderLeaf} />
         </Slate>
       </Card>
