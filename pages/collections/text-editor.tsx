@@ -1,5 +1,7 @@
 import TextEditor from "@ui/commons/TextEditor";
 import Wrapper from "@ui/commons/Wrapper";
+import React from "react";
+import { initialValue } from "utils/editor";
 
 const RichTextEditor = () => {
   return (
@@ -8,7 +10,7 @@ const RichTextEditor = () => {
         Slate Text Editor
       </h1>
       <div className="flex mt-4 text-center">
-        <TextEditor />
+        <TextEditor document={initialValue} />
       </div>
     </Wrapper>
   );
