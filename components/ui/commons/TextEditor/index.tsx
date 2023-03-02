@@ -81,7 +81,7 @@ const TextEditor = ({ document, onChange }: TextEditorProps) => {
   return (
     <div className="flex flex-col">
       <Card>
-        <Toolbar selection={selection} />
+        <Toolbar editor={editor} selection={selection} />
         <Slate editor={editor} value={document} onChange={onChangeHandler}>
           <Editable renderElement={renderElement} renderLeaf={renderLeaf} />
         </Slate>

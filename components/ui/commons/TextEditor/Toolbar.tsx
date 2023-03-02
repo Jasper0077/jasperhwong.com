@@ -1,17 +1,17 @@
-import { BaseRange, BaseSelection } from "slate";
+import { BaseEditor, BaseRange, BaseSelection } from "slate";
 import React from "react";
 import IconButton from "@ui/commons/buttons/IconButton";
 import Dropdown from "@ui/commons/Dropdown";
 import { PARAGRAPH_STYLES, CHARACTER_STYLES } from "./constants";
 import { getActiveStyles, toggleStyle } from "utils/editor";
-import { useSlateStatic } from "slate-react";
+import { ReactEditor } from "slate-react";
 
 export interface ToolbarProps {
+  editor: BaseEditor & ReactEditor;
   selection?: BaseRange | ((newSelection: BaseSelection) => void) | null;
 }
 
-const Toolbar = ({ selection }: ToolbarProps) => {
-  const editor = useSlateStatic();
+const Toolbar = ({ editor, selection }: ToolbarProps) => {
   return (
     <div className="flex justify-start items-center my-2 space-x-4 z-10">
       <Dropdown text={PARAGRAPH_STYLES[0]} className="w-24 h-9">
