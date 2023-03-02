@@ -39,10 +39,21 @@ function renderElement(props: RenderElementProps) {
   }
 }
 
-const renderLeaf = ({ children, leaf }: RenderLeafProps) => {
-  let el = <>{children}</>;
+const renderLeaf = ({ attributes, children, leaf }: RenderLeafProps) => {
+  if (leaf.bold) {
+    children = <strong>{children}</strong>;
+  }
+
   if (leaf.code) {
-    el = <code className="inline">{children}</code>;
+    children = <code>{children}</code>;
+  }
+
+  if (leaf.italic) {
+    children = <em>{children}</em>;
+  }
+
+  if (leaf.underline) {
+    children = <u>{children}</u>;
   }
 
   return (
@@ -54,8 +65,9 @@ const renderLeaf = ({ children, leaf }: RenderLeafProps) => {
         leaf.code && "prose",
         "inline"
       )}
+      {...attributes}
     >
-      {el}
+      {children}
     </span>
   );
 };
@@ -79,9 +91,9 @@ const TextEditor = ({ document, onChange }: TextEditorProps) => {
   const { renderElement } = useEditorConfig(editor);
 
   return (
-    <div className="flex flex-col border-gray-100 border-2 rounded-lg">
+    <div className="flex flex-col border-gray-700 dark:border-gray-100 border-2 rounded-lg">
       <Toolbar editor={editor} selection={selection} />
-      <Card>
+      <Card className="rounded-t-none">
         <Slate editor={editor} value={document} onChange={onChangeHandler}>
           <Editable renderElement={renderElement} renderLeaf={renderLeaf} />
         </Slate>
