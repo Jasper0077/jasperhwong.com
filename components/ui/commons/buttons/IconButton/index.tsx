@@ -6,7 +6,7 @@ export interface IconButtonProps extends DOMAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   handleClick: () => void;
   ariaLabel?: string;
-  classNames?: string;
+  className?: string;
 }
 
 const IconButton = ({
@@ -14,7 +14,7 @@ const IconButton = ({
   children,
   handleClick,
   ariaLabel,
-  classNames,
+  className,
   ...props
 }: IconButtonProps) => {
   return (
@@ -23,7 +23,7 @@ const IconButton = ({
       type="button"
       className={cn(
         "bg-gray-200 rounded-lg dark:bg-gray-600 hover:ring-2 ring-gray-300 transition-all",
-        classNames,
+        className,
         isActive ? "bg-day-purple dark:bg-night-purple text-white" : ""
       )}
       onClick={handleClick}

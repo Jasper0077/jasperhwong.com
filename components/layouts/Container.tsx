@@ -106,7 +106,7 @@ export default function Container({ children, customMeta }: ContainerProps) {
           </div>
           <IconButton
             handleClick={handleThemeClick}
-            classNames="w-9 h-9 flex items-center justify-center"
+            className="w-9 h-9 flex items-center justify-center"
           >
             {mounted && (
               <svg

@@ -8,7 +8,7 @@ interface Props {
   variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   label?: string;
   text?: string;
-  classNames?: string;
+  className?: string;
 }
 
 export const headingStyles = cva("", {
@@ -42,7 +42,7 @@ const Character = styled(motion.span)`
  * Credit To:
  * https://www.josephcollicoat.com/articles/animating-text-with-the-intersection-observer-api-and-framer-motion
  */
-const AnimatedHeading = ({ variant, label, text, classNames }: Props) => {
+const AnimatedHeading = ({ variant, label, text, className }: Props) => {
   const Tag = variant || "h1";
   const controls = useAnimation();
   const ref = React.useRef(null);
@@ -76,7 +76,7 @@ const AnimatedHeading = ({ variant, label, text, classNames }: Props) => {
     <Tag
       aria-label={label || "animated heading"}
       ref={ref}
-      className={cn(headingStyles({ variant }), classNames || "")}
+      className={cn(headingStyles({ variant }), className)}
     >
       {text?.split(" ").map((word, index) => {
         return (

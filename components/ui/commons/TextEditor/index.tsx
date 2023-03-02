@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 import React from "react";
 import { BaseEditor, createEditor, Descendant } from "slate";
 import {
@@ -47,7 +47,7 @@ const renderLeaf = ({ children, leaf }: RenderLeafProps) => {
 
   return (
     <span
-      className={classNames(
+      className={cn(
         leaf.bold && "font-bold",
         leaf.italic && "italic",
         leaf.underline && "underline",
@@ -79,9 +79,9 @@ const TextEditor = ({ document, onChange }: TextEditorProps) => {
   const { renderElement } = useEditorConfig(editor);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col border-gray-100 border-2 rounded-lg">
+      <Toolbar editor={editor} selection={selection} />
       <Card>
-        <Toolbar editor={editor} selection={selection} />
         <Slate editor={editor} value={document} onChange={onChangeHandler}>
           <Editable renderElement={renderElement} renderLeaf={renderLeaf} />
         </Slate>

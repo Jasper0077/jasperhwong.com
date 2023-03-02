@@ -14,7 +14,7 @@ export interface ToolbarProps {
 const Toolbar = ({ editor, selection }: ToolbarProps) => {
   return (
     <div className="flex justify-start items-center my-2 space-x-4 z-10">
-      <Dropdown text={PARAGRAPH_STYLES[0]} className="w-24 h-9">
+      <Dropdown text={PARAGRAPH_STYLES[0]} className="w-24 h-9 z-10">
         {PARAGRAPH_STYLES.map((s, index) => {
           return (
             <Dropdown.Item
@@ -31,7 +31,7 @@ const Toolbar = ({ editor, selection }: ToolbarProps) => {
         return (
           <IconButton
             isActive={getActiveStyles(editor).has(style)}
-            classNames="rounded w-9 h-9 flex items-center justify-center text-center"
+            className="rounded w-9 h-9 flex items-center justify-center text-center"
             key={style + index}
             handleClick={() => console.log("debug", style)}
             onMouseDown={(event) => {

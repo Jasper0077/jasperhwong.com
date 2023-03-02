@@ -5,7 +5,7 @@ export interface ButtonProps extends VariantProps<typeof buttonStyles> {
   variant?: "primary" | "secondary";
   size?: "small" | "medium";
   children: React.ReactNode;
-  classNames?: string;
+  className?: string;
 }
 
 export const buttonStyles = cva("rounded-lg px-2 mx-2", {
@@ -35,13 +35,13 @@ export const Button = ({
   variant,
   size,
   children,
-  classNames,
+  className,
   ...props
 }: ButtonProps) => {
   return (
     <button
       type="button"
-      className={cn(buttonStyles({ variant, size }), classNames)}
+      className={cn(buttonStyles({ variant, size }), className)}
       {...props}
     >
       {children}
