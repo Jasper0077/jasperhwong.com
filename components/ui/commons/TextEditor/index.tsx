@@ -14,6 +14,8 @@ import {
 import Card from "@ui/commons/cards/Card";
 import Toolbar from "@ui/commons/TextEditor/Toolbar";
 import useSelection from "hooks/useSelectionChange";
+import isHotkey from "is-hotkey";
+import { toggleStyle } from "utils/editor";
 
 interface TextEditorProps {
   document: Descendant[];
@@ -72,9 +74,35 @@ const renderLeaf = ({ attributes, children, leaf }: RenderLeafProps) => {
   );
 };
 
-export function useEditorConfig(editor: BaseEditor & ReactEditor) {
-  return { renderElement };
-}
+const useEditorConfig = (editor: BaseEditor & ReactEditor) => {
+  const onKeyDown = React.useCallback(
+    (event: React.KeyboardEvent) => KeyBindings.onKeyDown(editor, event),
+    [editor]
+  );
+  return { renderElement, renderLeaf, onKeyDown };
+};
+
+const KeyBindings = {
+  onKeyDown: (editor: BaseEditor & ReactEditor, event: React.KeyboardEvent) => {
+    if (isHotkey("mod+b", event)) {
+      toggleStyle(editor, "bold");
+      return;
+    }
+    if (isHotkey("mod+i", event)) {
+      toggleStyle(editor, "italic");
+      return;
+    }
+    if (isHotkey("mod+c", event)) {
+      toggleStyle(editor, "code");
+      return;
+    }
+    if (isHotkey("mod+u", event)) {
+      toggleStyle(editor, "underline");
+      return;
+    }
+  }
+};
+
 const TextEditor = ({ document, onChange }: TextEditorProps) => {
   const [editor, setEditor] = React.useState(() => withReact(createEditor()));
   const { selection, setSelectionOptimized: setSelection } =
