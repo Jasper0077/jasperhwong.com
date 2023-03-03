@@ -3,7 +3,12 @@ import React from "react";
 import IconButton from "@ui/commons/buttons/IconButton";
 import Dropdown from "@ui/commons/Dropdown";
 import { PARAGRAPH_STYLES, CHARACTER_STYLES } from "./constants";
-import { getActiveStyles, toggleStyle } from "utils/editor";
+import {
+  getActiveStyles,
+  getTextBlockStyle,
+  toggleBlockType,
+  toggleStyle
+} from "utils/editor";
 import { ReactEditor } from "slate-react";
 
 export interface ToolbarProps {
@@ -12,15 +17,27 @@ export interface ToolbarProps {
 }
 
 const Toolbar = ({ editor, selection }: ToolbarProps) => {
+  const onBlockTypeChange = React.useCallback(
+    (targetType: string) => {
+      if (targetType === "multiple") {
+        return;
+      }
+      toggleBlockType(editor, targetType);
+    },
+    [editor]
+  );
+
+  const blockType = getTextBlockStyle(editor);
+
   return (
     <div className="flex justify-start items-center my-2 space-x-4 z-10">
-      <Dropdown text={PARAGRAPH_STYLES[0]} className="w-24 h-9 z-10">
+      <Dropdown text={blockType ?? "h1"} className="w-24 h-9 z-10">
         {PARAGRAPH_STYLES.map((s, index) => {
           return (
             <Dropdown.Item
               key={s + index}
               variant="div"
-              onClick={() => console.log("debug", s)}
+              onClick={() => onBlockTypeChange(s)}
             >
               {s}
             </Dropdown.Item>
