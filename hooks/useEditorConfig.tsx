@@ -45,6 +45,9 @@ const renderLeaf = ({ attributes, children, leaf }: RenderLeafProps) => {
   if (leaf.underline) {
     children = <u>{children}</u>;
   }
+  if (leaf.link) {
+    children = <a>{children}</a>;
+  }
 
   return (
     <span
@@ -53,6 +56,7 @@ const renderLeaf = ({ attributes, children, leaf }: RenderLeafProps) => {
         leaf.italic && "italic",
         leaf.underline && "underline",
         leaf.code && "prose",
+        leaf.link && "prose a",
         "inline"
       )}
       {...attributes}

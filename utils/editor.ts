@@ -1,4 +1,12 @@
-import { Element, Editor, BaseEditor, Transforms, Range } from "slate";
+import {
+  Element,
+  Editor,
+  BaseEditor,
+  Transforms,
+  Range,
+  BaseRange,
+  BaseSelection
+} from "slate";
 import { ReactEditor } from "slate-react";
 
 export const initialValue: Element[] = [
@@ -81,4 +89,54 @@ export function toggleBlockType(
       match: (n) => Element.isElement(n) && Editor.isBlock(editor, n)
     }
   );
+}
+
+export function isLinkNodeAtSelection(
+  editor: BaseEditor & ReactEditor,
+  selection: BaseSelection
+) {
+  if (!selection) {
+    return false;
+  }
+
+  return (
+    Editor.above(editor, {
+      at: Editor.unhangRange(editor, selection),
+      match: (n) => Element.isElement(n) && n.type === "link"
+    }) != null
+  );
+}
+
+export function toggleLinkAtSelection(editor: BaseEditor & ReactEditor) {
+  if (!isLinkNodeAtSelection(editor, editor.selection)) {
+    const isSelectionCollapsed = Range.isCollapsed(
+      editor.selection as BaseRange
+    );
+    const { selection } = editor;
+    if (!selection) return;
+    if (isSelectionCollapsed) {
+      Transforms.insertNodes(
+        editor,
+        {
+          type: "link",
+          url: "#",
+          children: [{ text: "link" }]
+        },
+        { at: Editor.unhangRange(editor, editor.selection as BaseRange) }
+      );
+    } else {
+      Transforms.wrapNodes(
+        editor,
+        { type: "link", url: "#", children: [{ text: "" }] },
+        {
+          split: true,
+          at: Editor.unhangRange(editor, editor.selection as BaseRange)
+        }
+      );
+    }
+  } else {
+    Transforms.unwrapNodes(editor, {
+      match: (n) => Element.isElement(n) && n.type === "link"
+    });
+  }
 }
