@@ -4,6 +4,7 @@ export const PARAGRAPH_STYLES = [
   "h3",
   "h4",
   "paragraph",
+  "link",
   "multiple"
 ];
 
