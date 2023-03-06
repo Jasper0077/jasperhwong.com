@@ -6,6 +6,8 @@ import { Editable, Slate, withReact } from "slate-react";
 
 import Card from "@ui/commons/cards/Card";
 import Toolbar from "@ui/commons/TextEditor/Toolbar";
+import LinkEditor from "@ui/commons/TextEditor/LinkEditor";
+import { isLinkNodeAtSelection } from "utils/editor";
 
 interface TextEditorProps {
   document: Descendant[];
@@ -14,6 +16,7 @@ interface TextEditorProps {
 
 const TextEditor = ({ document, onChange }: TextEditorProps) => {
   const [editor, setEditor] = React.useState(() => withReact(createEditor()));
+  const editorRef = React.useRef<HTMLDivElement>(null);
   const { selection, setSelectionOptimized: setSelection } =
     useSelection(editor);
 
@@ -32,11 +35,26 @@ const TextEditor = ({ document, onChange }: TextEditorProps) => {
       <Toolbar editor={editor} selection={selection} />
       <Card className="rounded-t-none">
         <Slate editor={editor} value={document} onChange={onChangeHandler}>
-          <Editable
-            renderElement={renderElement}
-            renderLeaf={renderLeaf}
-            onKeyDown={onKeyDown}
-          />
+          <div ref={editorRef}>
+            {isLinkNodeAtSelection(editor, selection) ? (
+              <LinkEditor
+                editor={editor}
+                editorOffsets={
+                  editorRef.current !== null
+                    ? {
+                        x: editorRef.current.getBoundingClientRect().x,
+                        y: editorRef.current.getBoundingClientRect().y
+                      }
+                    : null
+                }
+              />
+            ) : null}
+            <Editable
+              renderElement={renderElement}
+              renderLeaf={renderLeaf}
+              onKeyDown={onKeyDown}
+            />
+          </div>
         </Slate>
       </Card>
     </div>

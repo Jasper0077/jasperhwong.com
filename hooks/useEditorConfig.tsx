@@ -23,6 +23,8 @@ function renderElement(props: RenderElementProps) {
       return <h3 {...attributes}>{children}</h3>;
     case "h4":
       return <h4 {...attributes}>{children}</h4>;
+    case "link":
+      return <a href={element.url}>{children}</a>;
     default:
       // For the default case, we delegate to Slate's default rendering.
       return <DefaultElement {...props} />;

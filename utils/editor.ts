@@ -38,9 +38,10 @@ export function toggleStyle(editor: BaseEditor & ReactEditor, style: string) {
   const activeStyles = getActiveStyles(editor);
   if (activeStyles.has(style)) {
     Editor.removeMark(editor, style);
-  } else {
-    Editor.addMark(editor, style, true);
+    return false;
   }
+  Editor.addMark(editor, style, true);
+  return true;
 }
 
 export function getTextBlockStyle(editor: BaseEditor & ReactEditor) {
@@ -99,10 +100,13 @@ export function isLinkNodeAtSelection(
     return false;
   }
 
+  console.log(editor, selection);
+
   return (
     Editor.above(editor, {
-      at: Editor.unhangRange(editor, selection),
-      match: (n) => Element.isElement(n) && n.type === "link"
+      at: selection,
+      match: (n) =>
+        !Editor.isEditor(n) && Element.isElement(n) && n.type === "link"
     }) != null
   );
 }
