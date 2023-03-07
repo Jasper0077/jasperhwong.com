@@ -69,7 +69,12 @@ const LinkEditor = ({ editor, editorOffsets }: Props) => {
 
   return (
     <div>
-      <input type="text" value={linkURL} onChange={onLinkURLChange} />
+      <input
+        className="rounded-sm border-gray-700 dark:border-gray-100 p-2"
+        type="text"
+        value={linkURL}
+        onChange={onLinkURLChange}
+      />
       <Button
         variant="primary"
         disabled={!isUrl(linkURL || "")}
