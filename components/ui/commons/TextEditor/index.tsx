@@ -14,6 +14,7 @@ interface TextEditorProps {
   onChange?: (value: Descendant[]) => void;
 }
 
+// TODO: make responsive text editor
 const TextEditor = ({ document, onChange }: TextEditorProps) => {
   const [editor, setEditor] = React.useState(() => withReact(createEditor()));
   const editorRef = React.useRef<HTMLDivElement>(null);
@@ -31,9 +32,9 @@ const TextEditor = ({ document, onChange }: TextEditorProps) => {
   const { renderElement, renderLeaf, onKeyDown } = useEditorConfig(editor);
 
   return (
-    <div className="flex flex-col border-gray-700 dark:border-gray-100 border-2 rounded-lg">
+    <div className="flex flex-col border-gray-700 dark:border-gray-100 border-2 rounded-lg min-w-max">
       <Toolbar editor={editor} selection={selection} />
-      <Card className="rounded-t-none">
+      <Card className="sm:w-auto mt-2 rounded-t-none">
         <Slate editor={editor} value={document} onChange={onChangeHandler}>
           <div ref={editorRef}>
             {isLinkNodeAtSelection(editor, selection) ? (
