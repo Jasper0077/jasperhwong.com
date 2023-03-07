@@ -30,7 +30,7 @@ const Toolbar = ({ editor, selection }: ToolbarProps) => {
   const blockType = getTextBlockStyle(editor);
 
   return (
-    <div className="flex items-center justify-between mx-6 my-2 space-x-4">
+    <div className="flex items-center justify-between mx-6 my-2 space-x-12">
       <div>
         <Dropdown text={blockType ?? "h1"} className="w-24 h-9 z-10">
           {PARAGRAPH_STYLES.map((s, index) => {
@@ -54,8 +54,13 @@ const Toolbar = ({ editor, selection }: ToolbarProps) => {
               className="rounded w-9 h-9 flex items-center justify-center text-center"
               key={style + index}
               handleClick={() => console.log("debug", style)}
-              onMouseDown={(event) => {
+              onClick={(event) => {
                 event.preventDefault();
+                if (style === "link") {
+                  onBlockTypeChange(style);
+                  toggleStyle(editor, style);
+                  return;
+                }
                 toggleStyle(editor, style);
               }}
             >
