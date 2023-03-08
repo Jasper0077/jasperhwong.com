@@ -3,6 +3,7 @@ import React from "react";
 import {
   BaseEditor,
   BaseElement,
+  BaseRange,
   Editor,
   Element,
   Node,
@@ -13,26 +14,24 @@ import { ReactEditor } from "slate-react";
 import { Button } from "../buttons/Button";
 
 interface Props {
+  selectionForLink: BaseRange;
   editor: BaseEditor & ReactEditor;
   editorOffsets: { x: number; y: number } | null;
 }
 
-const LinkEditor = ({ editor, editorOffsets }: Props) => {
+const LinkEditor = ({ selectionForLink, editor, editorOffsets }: Props) => {
   const linkEditorRef = React.useRef<HTMLInputElement>(null);
 
   const [linkNode, path] = React.useMemo(() => {
     return Array.from(
       Editor.above<BaseElement>(editor, {
+        at: selectionForLink,
         match: (n) => Element.isElement(n) && n.type === "link"
       }) || []
     );
-  }, [editor]);
+  }, [editor, selectionForLink]);
 
   const [linkURL, setLinkURL] = React.useState((linkNode as BaseElement).url);
-
-  React.useEffect(() => {
-    console.log(linkURL);
-  }, [linkURL]);
 
   React.useEffect(() => {
     const linkEditorEl = linkEditorRef.current;

@@ -1,3 +1,5 @@
+import { BaseText } from "slate";
+
 export const PARAGRAPH_STYLES = [
   "h1",
   "h2",
@@ -8,7 +10,10 @@ export const PARAGRAPH_STYLES = [
   "multiple"
 ];
 
-export const CHARACTER_STYLES = [
+export const CHARACTER_STYLES: {
+  style: keyof Omit<BaseText, "text">;
+  icon: JSX.Element;
+}[] = [
   {
     style: "bold",
     icon: (

@@ -5,7 +5,8 @@ import {
   Transforms,
   Range,
   BaseRange,
-  BaseSelection
+  BaseSelection,
+  BaseText
 } from "slate";
 import { ReactEditor } from "slate-react";
 
@@ -30,18 +31,23 @@ export const initialValue: Element[] = [
   }
 ];
 
-export function getActiveStyles(editor: Editor) {
-  return new Set(Object.keys(Editor.marks(editor) ?? {}));
+export function getActiveStyles(
+  editor: Editor,
+  style: keyof Omit<BaseText, "text">
+) {
+  const marks = Editor.marks(editor);
+  return marks ? marks[style] === true : false;
 }
 
-export function toggleStyle(editor: BaseEditor & ReactEditor, style: string) {
-  const activeStyles = getActiveStyles(editor);
-  if (activeStyles.has(style)) {
+export function toggleStyle(
+  editor: BaseEditor & ReactEditor,
+  style: keyof Omit<BaseText, "text">
+) {
+  if (getActiveStyles(editor, style)) {
     Editor.removeMark(editor, style);
-    return false;
+    return;
   }
   Editor.addMark(editor, style, true);
-  return true;
 }
 
 export function getTextBlockStyle(editor: BaseEditor & ReactEditor) {

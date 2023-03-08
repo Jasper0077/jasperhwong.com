@@ -1,5 +1,6 @@
 import cn from "classnames";
 import isHotkey from "is-hotkey";
+import Link from "next/link";
 import React from "react";
 import { BaseEditor } from "slate";
 import {
@@ -33,22 +34,26 @@ function renderElement(props: RenderElementProps) {
 
 const renderLeaf = ({ attributes, children, leaf }: RenderLeafProps) => {
   if (leaf.bold) {
-    children = <strong>{children}</strong>;
+    children = <strong {...attributes}>{children}</strong>;
   }
 
   if (leaf.code) {
-    children = <code>{children}</code>;
+    children = <code {...attributes}>{children}</code>;
   }
 
   if (leaf.italic) {
-    children = <em>{children}</em>;
+    children = <em {...attributes}>{children}</em>;
   }
 
   if (leaf.underline) {
-    children = <u>{children}</u>;
+    children = <u {...attributes}>{children}</u>;
   }
   if (leaf.link) {
-    children = <a>{children}</a>;
+    children = (
+      <Link href="/">
+        <a {...attributes}>{children}</a>
+      </Link>
+    );
   }
 
   return (

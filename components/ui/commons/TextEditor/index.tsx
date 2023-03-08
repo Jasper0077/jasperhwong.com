@@ -18,8 +18,22 @@ interface TextEditorProps {
 const TextEditor = ({ document, onChange }: TextEditorProps) => {
   const [editor, setEditor] = React.useState(() => withReact(createEditor()));
   const editorRef = React.useRef<HTMLDivElement>(null);
-  const { selection, setSelectionOptimized: setSelection } =
-    useSelection(editor);
+  const {
+    previousSelection,
+    selection,
+    setSelectionOptimized: setSelection
+  } = useSelection(editor);
+
+  let selectionForLink = null;
+  if (isLinkNodeAtSelection(editor, selection)) {
+    selectionForLink = selection;
+  } else if (
+    selection == null &&
+    previousSelection &&
+    isLinkNodeAtSelection(editor, previousSelection)
+  ) {
+    selectionForLink = previousSelection;
+  }
 
   const onChangeHandler = React.useCallback(
     (document: Descendant[]) => {
@@ -37,8 +51,9 @@ const TextEditor = ({ document, onChange }: TextEditorProps) => {
       <Card className="sm:w-auto mt-2 rounded-t-none">
         <Slate editor={editor} value={document} onChange={onChangeHandler}>
           <div ref={editorRef}>
-            {isLinkNodeAtSelection(editor, selection) ? (
+            {selectionForLink != null ? (
               <LinkEditor
+                selectionForLink={selectionForLink}
                 editor={editor}
                 editorOffsets={
                   editorRef.current !== null

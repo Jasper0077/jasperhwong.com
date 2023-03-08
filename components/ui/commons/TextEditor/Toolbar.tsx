@@ -50,7 +50,7 @@ const Toolbar = ({ editor, selection }: ToolbarProps) => {
         {CHARACTER_STYLES.map(({ style, icon }, index) => {
           return (
             <IconButton
-              isActive={getActiveStyles(editor).has(style)}
+              isActive={getActiveStyles(editor, style)}
               className="rounded w-9 h-9 flex items-center justify-center text-center"
               key={style + index}
               handleClick={() => console.log("debug", style)}
