@@ -1,5 +1,6 @@
 import { cva } from "class-variance-authority";
-import { motion, useAnimation, useInView } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import React from "react";
 import styled from "styled-components";
 import cn from "classnames";
@@ -29,7 +30,7 @@ export const headingStyles = cva("", {
 
 const Word = styled(motion.span)`
   display: inline-block;
-  margin-right: 0.25em;
+  margin-right: 1em;
   white-space: nowrap;
 `;
 
@@ -45,8 +46,10 @@ const Character = styled(motion.span)`
 const AnimatedHeading = ({ variant, label, text, className }: Props) => {
   const Tag = variant || "h1";
   const controls = useAnimation();
-  const ref = React.useRef(null);
-  const isInView = useInView(ref);
+  const { ref, inView: isInView } = useInView({
+    threshold: 0.5,
+    triggerOnce: true
+  });
 
   React.useEffect(() => {
     if (isInView) {
@@ -71,6 +74,8 @@ const AnimatedHeading = ({ variant, label, text, className }: Props) => {
       }
     }
   };
+
+  console.log("debug", text?.split(" "));
 
   return (
     <Tag
@@ -109,4 +114,4 @@ const AnimatedHeading = ({ variant, label, text, className }: Props) => {
   );
 };
 
-export default AnimatedHeading;
+export default React.memo(AnimatedHeading);
