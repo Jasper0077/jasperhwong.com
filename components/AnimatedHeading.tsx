@@ -2,7 +2,6 @@ import { cva } from "class-variance-authority";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import React from "react";
-import styled from "styled-components";
 import cn from "classnames";
 
 interface Props {
@@ -27,17 +26,6 @@ export const headingStyles = cva("", {
     variant: "h1"
   }
 });
-
-const Word = styled(motion.span)`
-  display: inline-block;
-  margin-right: 1em;
-  white-space: nowrap;
-`;
-
-const Character = styled(motion.span)`
-  display: inline-block;
-  margin-right: -0.05em;
-`;
 
 /**
  * Credit To:
@@ -75,8 +63,6 @@ const AnimatedHeading = ({ variant, label, text, className }: Props) => {
     }
   };
 
-  console.log("debug", text?.split(" "));
-
   return (
     <Tag
       aria-label={label || "animated heading"}
@@ -85,10 +71,10 @@ const AnimatedHeading = ({ variant, label, text, className }: Props) => {
     >
       {text?.split(" ").map((word, index) => {
         return (
-          <Word
+          <motion.span
             ref={ref}
             aria-hidden="true"
-            key={index}
+            key={word + index}
             initial="hidden"
             animate={controls}
             variants={{
@@ -99,15 +85,21 @@ const AnimatedHeading = ({ variant, label, text, className }: Props) => {
               delayChildren: index * 0.25,
               staggerChildren: 0.05
             }}
+            className="inline-block mr-2 whitespace-nowrap"
           >
             {word.split("").map((character, index) => {
               return (
-                <Character aria-hidden="true" key={index} variants={animation}>
+                <motion.span
+                  aria-hidden="true"
+                  key={index}
+                  variants={animation}
+                  className="-mr-0.25 inline-block"
+                >
                   {character}
-                </Character>
+                </motion.span>
               );
             })}
-          </Word>
+          </motion.span>
         );
       })}
     </Tag>
