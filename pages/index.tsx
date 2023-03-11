@@ -6,7 +6,7 @@ const Home: NextPage = () => {
     <div className="flex flex-col justify-center max-w-2xl mx-auto mb-16 w-full">
       <AnimatedHeading
         variant="h1"
-        classNames="flex w-full max-w-2xl text-4xl font-bold mx-auto pt-8 pb-8 sm:pb-16"
+        className="flex w-full max-w-2xl text-4xl font-bold mx-auto pt-8 pb-8 sm:pb-16"
         text="Hi, I am Jasper Hwong."
       />
     </div>
