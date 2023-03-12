@@ -1,5 +1,6 @@
 import React from "react";
 import cn from "classnames";
+import useOutsideClick from "hooks/useOutsideClick";
 
 export interface DropdownItemProps {
   variant?: "a" | "div";
@@ -35,18 +36,16 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
 
 const Dropdown = ({ text, children, className }: DropdownProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
-
-  React.useEffect(() => {
-    console.log(isOpen);
-  }, [isOpen]);
+  const ref = useOutsideClick(() => setIsOpen(false));
 
   return (
     <div className={cn("relative", className)}>
       <button
+        ref={ref}
         id="dropdownDefaultButton"
         data-dropdown-toggle="dropdown"
         aria-label="Dropdown"
-        className="dark:text-white text-grey-200 focus:ring-4 focus:ring-white focus:outline-none font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center hover:bg-gray-200 dark:hover:bg-gray-800 : transition-all"
+        className="w-max dark:text-white text-grey-200 focus:ring-4 focus:ring-white focus:outline-none font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-all"
         type="button"
         onClick={() => setIsOpen(!isOpen)}
       >

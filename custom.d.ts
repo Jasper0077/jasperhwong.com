@@ -4,6 +4,7 @@ import { BaseElement, BaseText } from "slate";
 declare module "slate" {
   export interface BaseElement {
     type: string;
+    url?: string;
   }
 
   export interface BaseText {
@@ -11,5 +12,6 @@ declare module "slate" {
     code?: boolean;
     italic?: boolean;
     underline?: boolean;
+    link?: boolean;
   }
 }

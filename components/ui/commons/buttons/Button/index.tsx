@@ -1,10 +1,13 @@
 import { cva, VariantProps } from "class-variance-authority";
 import cn from "classnames";
+import { ButtonHTMLAttributes } from "react";
 
-export interface ButtonProps extends VariantProps<typeof buttonStyles> {
+export interface ButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonStyles> {
   variant?: "primary" | "secondary";
   size?: "small" | "medium";
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
 }
 
