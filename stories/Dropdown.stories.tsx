@@ -1,7 +1,4 @@
-import Dropdown, {
-  DropdownItem,
-  DropdownProps
-} from "../components/ui/commons/Dropdown";
+import Dropdown, { DropdownProps } from "../components/ui/commons/Dropdown";
 import React from "react";
 
 import { ComponentMeta, ComponentStory } from "@storybook/react";
