@@ -2,11 +2,13 @@ import cn from "classnames";
 import React from "react";
 
 export interface ModalProps {
+  open: boolean;
   children: React.ReactNode;
 }
 
 export interface ModalHeaderProps {
-  children: React.ReactNode;
+  title: string;
+  handleClose: () => void;
 }
 
 export interface ModalContentProps {
@@ -17,10 +19,33 @@ export interface ModalFooterProps {
   children: React.ReactNode;
 }
 
-export const ModalHeader = ({ children }: ModalHeaderProps) => {
+export const ModalHeader = ({ title, handleClose }: ModalHeaderProps) => {
   return (
     <div className="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-      {children}
+      <h3 className="text-xl font-semibold text-grey-200 dark:text-white">
+        {title}
+      </h3>
+      <button
+        type="button"
+        className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+        data-modal-hide="defaultModal"
+        onClick={handleClose}
+      >
+        <svg
+          aria-hidden="true"
+          className="w-5 h-5"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fillRule="evenodd"
+            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+            clipRule="evenodd"
+          ></path>
+        </svg>
+        <span className="sr-only">Close</span>
+      </button>
     </div>
   );
 };
@@ -33,18 +58,19 @@ export const ModalFooter = ({ children }: ModalFooterProps) => {
   return <div className="p-6 space-y-6">{children}</div>;
 };
 
-export const Modal = ({ children }: ModalProps) => {
+export const Modal = ({ open, children }: ModalProps) => {
   return (
     <div
-      id="defaultModal"
       aria-hidden="true"
       className={cn(
+        !open && "hidden",
         "fixed top-0 left-0 right-0",
-        "z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full"
+        "backdrop-blur-sm",
+        "z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full"
       )}
     >
-      <div className="relative w-full h-full max-w-2xl md:h-auto">
-        <div className="relative bg-gray-100 dark:bg-gray-900 rounded-lg shadow">
+      <div className="relative max-w-2xl mx-auto">
+        <div className="relative bg-gray-100 dark:bg-gray-900 rounded-lg shadow-md">
           {children}
         </div>
       </div>
