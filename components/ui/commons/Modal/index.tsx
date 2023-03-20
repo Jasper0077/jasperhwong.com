@@ -32,7 +32,6 @@ export const ModalHeader = ({ title, handleClose }: ModalHeaderProps) => {
         onClick={handleClose}
       >
         <svg
-          aria-hidden="true"
           className="w-5 h-5"
           fill="currentColor"
           viewBox="0 0 20 20"
@@ -61,12 +60,11 @@ export const ModalFooter = ({ children }: ModalFooterProps) => {
 export const Modal = ({ open, children }: ModalProps) => {
   return (
     <div
-      aria-hidden="true"
       className={cn(
         !open && "hidden",
         "fixed top-0 left-0 right-0",
         "backdrop-blur-sm",
-        "z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full"
+        "z-10 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full"
       )}
     >
       <div className="relative max-w-2xl mx-auto">
