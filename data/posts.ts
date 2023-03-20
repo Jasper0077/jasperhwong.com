@@ -30,5 +30,18 @@ export const posts: Array<Post> = [
     description: "A Recap of what I have learned in 2022...",
     date: "13 Dec 2022",
     tags: ["React", "mdx", "Next.js", "Leetcode", "AWS", "Kubernetes"]
+  },
+  {
+    slug: "stacking-context-and-portal",
+    title: "Stacking Context and Portal",
+    author: [
+      {
+        name: "Jasper Hwong",
+        github: "Jasper0077"
+      }
+    ],
+    description: "What I have learned by building a Modal component...",
+    date: "13 Dec 2022",
+    tags: ["React", "CSS", "Tailwind"]
   }
 ];

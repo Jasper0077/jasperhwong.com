@@ -1,0 +1,100 @@
+---
+slug: "stacking-context-and-portal"
+title: "Stacking Context and Portal"
+author: "Jasper Hwong"
+date: "20 Mar 2023"
+---
+
+# The Story
+
+It is when I am starting to implement my own Modal component using in this project. But, something weird happened when I am exploring with css.
+
+```js
+export const Modal = ({ open, children }: ModalProps) => {
+  return (
+    <div
+      className={cn(
+        !open && "hidden",
+        "fixed top-0 left-0 right-0",
+        "backdrop-blur-sm",
+        "z-10 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full"
+      )}
+    >
+      <div className="relative max-w-2xl mx-auto">
+        <div className="relative bg-gray-100 dark:bg-gray-900 rounded-lg shadow-md">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+};
+```
+
+So, I have created this Modal component, and it looks pretty dang good. I use a demo page to test my component out happily.
+It looks pretty good when I do this.
+
+```js
+// ...
+return (
+  <>
+    <Button
+      onClick={() => setOpen(!open)}
+      variant="primary"
+      size="medium"
+      className="fixed top-250 left-500 z-3"
+    >
+      Open
+    </Button>
+    <Modal open={open}>
+      <ModalHeader title="This is a modal" handleClose={() => setOpen(!open)} />
+      <ModalContent>
+        <p>
+          sample texts go here. Width always look down to find the maximum width
+          of its children. Height backtrace upwards to find the height of its
+          parent.
+        </p>
+      </ModalContent>
+      <ModalFooter>
+        <Button>Click</Button>
+      </ModalFooter>
+    </Modal>
+  </>
+);
+// ...
+```
+
+[comment]: <> (Insert snapshot of normal dom order view here.)
+
+But, when I switch the position of the Modal with the Button.
+
+```js
+// ...
+return (
+  <>
+    <Modal open={open}>
+      <ModalHeader title="This is a modal" handleClose={() => setOpen(!open)} />
+      <ModalContent>
+        <p>
+          sample texts go here. Width always look down to find the maximum width
+          of its children. Height backtrace upwards to find the height of its
+          parent.
+        </p>
+      </ModalContent>
+      <ModalFooter>
+        <Button>Click</Button>
+      </ModalFooter>
+    </Modal>
+    <Button
+      onClick={() => setOpen(!open)}
+      variant="primary"
+      size="medium"
+      className="fixed top-250 left-500 z-3"
+    >
+      Open
+    </Button>
+  </>
+);
+// ...
+```
+
+[comment]: <> (Insert snapshot of tweaked dom order view here.)
