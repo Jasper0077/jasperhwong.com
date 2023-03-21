@@ -5,6 +5,7 @@ import { Post } from "../../types/Post";
 import { getPost, getAllPosts, mdxToHtml } from "../../utils/mdx";
 import { ParsedUrlQuery } from "querystring";
 import { Suspense } from "react";
+import Image from "next/image";
 
 // workaround while waiting author to migrate components to support mdx V2
 import { CodeSandbox } from "mdx-embed/dist/components/codesandbox";
@@ -23,7 +24,8 @@ type Props = {
 // bootstrapping components
 export const components = {
   Sparkles,
-  CodeSandbox
+  CodeSandbox,
+  Image
 };
 
 const PostPage: React.FC<Props> = ({
@@ -34,7 +36,7 @@ const PostPage: React.FC<Props> = ({
 }: Props) => {
   return (
     <article className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
-      <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
+      <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
         {frontMatter.title}
       </h1>
       <div className="flex flex-col items-start justify-between w-full mt-2 md:flex-row md:items-center">
