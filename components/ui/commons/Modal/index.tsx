@@ -3,6 +3,7 @@ import React from "react";
 
 export interface ModalProps {
   open: boolean;
+  className?: string;
   children: React.ReactNode;
 }
 
@@ -57,14 +58,15 @@ export const ModalFooter = ({ children }: ModalFooterProps) => {
   return <div className="p-6 space-y-6">{children}</div>;
 };
 
-export const Modal = ({ open, children }: ModalProps) => {
+export const Modal = ({ open, className, children }: ModalProps) => {
   return (
     <div
       className={cn(
         !open && "hidden",
-        "fixed top-0 left-0 right-0",
+        "top-0 left-0 right-0",
         "backdrop-blur-sm",
-        "z-10 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full"
+        "z-10 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full",
+        className
       )}
     >
       <div className="relative max-w-2xl mx-auto">
