@@ -11,5 +11,8 @@ module.exports = {
       }
     });
     return config;
+  },
+  images: {
+    domains: ["raw.githubusercontent.com"]
   }
 };
