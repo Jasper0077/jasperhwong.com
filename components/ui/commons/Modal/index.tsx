@@ -1,5 +1,6 @@
 import cn from "classnames";
 import React from "react";
+import Portal from "../Portal";
 
 export interface ModalProps {
   open: boolean;
@@ -60,20 +61,23 @@ export const ModalFooter = ({ children }: ModalFooterProps) => {
 
 export const Modal = ({ open, className, children }: ModalProps) => {
   return (
-    <div
-      className={cn(
-        !open && "hidden",
-        "top-0 left-0 right-0",
-        "backdrop-blur-sm",
-        "z-10 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full",
-        className
-      )}
-    >
-      <div className="relative max-w-2xl mx-auto">
-        <div className="relative bg-gray-100 dark:bg-gray-900 rounded-lg shadow-md">
-          {children}
+    <Portal>
+      {open && (
+        <div
+          className={cn(
+            "top-0 left-0 right-0",
+            "fixed backdrop-blur-sm",
+            "z-10 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full",
+            className
+          )}
+        >
+          <div className="relative max-w-2xl mx-auto">
+            <div className="relative bg-gray-100 dark:bg-gray-900 rounded-lg shadow-md">
+              {children}
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </Portal>
   );
 };
