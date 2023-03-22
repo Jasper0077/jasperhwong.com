@@ -51,8 +51,9 @@ export default function Document() {
           name="robots"
         />
       </Head>
-      <body className="bg-white dark:bg-black text-black dark:text-white">
+      <body className="bg-white dark:bg-black text-black dark:text-white isolate">
         <Main />
+        <div id="portal"></div>
         <NextScript />
       </body>
     </Html>
