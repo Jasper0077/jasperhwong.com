@@ -35,17 +35,19 @@ const Flexbox = () => {
 
   return (
     <Wrapper>
-      <div className={cn("flex", flexDirection.value)}>
-        {range(0, numberOfElements).map((val) => {
-          return (
-            <div
-              className="rounded border-gray-600 bg-gray-400 text-7xl p-4"
-              key={val}
-            >
-              {val}
-            </div>
-          );
-        })}
+      <div className="rounded border-gray-700 border-dashed p-4">
+        <div className={cn("flex", flexDirection.value, "gap-2")}>
+          {range(0, numberOfElements).map((val) => {
+            return (
+              <div
+                className="rounded border-gray-600 bg-gray-400 text-7xl p-4"
+                key={val}
+              >
+                {val}
+              </div>
+            );
+          })}
+        </div>
       </div>
       <div>
         <Dropdown text={flexDirection.name} className="w-24 h-9 z-10">
