@@ -31,21 +31,20 @@ const Flexbox = () => {
     name: "row",
     value: "flex-row"
   });
-  const [numberOfElements, setNumberOfElements] = React.useState<number>(3);
+  const [numberOfElements, setNumberOfElements] = React.useState<number>(30);
 
   return (
     <Wrapper>
-      <div className="rounded border-gray-700 border-dashed p-4">
-        <div className={cn("flex", flexDirection.value, "gap-2")}>
+      <div className="rounded border-gray-700 dark:border-gray-200 border-dashed border-2 p-4 w-2xl h-100">
+        <div
+          className={cn(
+            "flex justify-center mx-auto",
+            flexDirection.value,
+            "gap-4 items-start justify-center"
+          )}
+        >
           {range(0, numberOfElements).map((val) => {
-            return (
-              <div
-                className="rounded border-gray-600 bg-gray-400 text-7xl p-4"
-                key={val}
-              >
-                {val}
-              </div>
-            );
+            return <div className={`w-full bg-gray-500 h-12`} key={val}></div>;
           })}
         </div>
       </div>
