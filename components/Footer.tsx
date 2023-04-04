@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
       <div className="flex items-start justify-center px-16 space-x-8">
         <a href="https://github.com/jasper0077">
           <svg
-            className="dark:fill-gray-400 hover:cursor-pointer hover:animate-bounce"
+            className="dark:fill-gray-400 hover:cursor-pointer"
             xmlns="http://www.w3.org/2000/svg"
             width="36"
             height="36"
@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
         </a>
         <a href="https://leetcode.com/jasperhwong/">
           <svg
-            className="dark:fill-gray-400 hover:cursor-pointer hover:animate-bounce"
+            className="dark:fill-gray-400 hover:cursor-pointer"
             xmlns="http://www.w3.org/2000/svg"
             width="36"
             height="36"
@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
         </a>
         <a href="https://www.linkedin.com/in/jasper-hwong-4482331bb/">
           <svg
-            className="dark:fill-gray-400 hover:cursor-pointer hover:animate-bounce"
+            className="dark:fill-gray-400 hover:cursor-pointer"
             xmlns="http://www.w3.org/2000/svg"
             data-name="Layer 1"
             width="28"
