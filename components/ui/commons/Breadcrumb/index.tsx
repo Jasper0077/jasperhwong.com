@@ -49,13 +49,12 @@ const Crumb = ({ href, isActive, children }: CrumbProps) => {
   );
 };
 
-const Breadcrumbs = ({ children }: BreadcrumbProps) => {
+export const Breadcrumbs = ({ children }: BreadcrumbProps) => {
   return (
     <nav aria-label="Breadcrumb">
-      <BreadcrumbWrapper>{children}</BreadcrumbWrapper>;
+      <BreadcrumbWrapper>{children}</BreadcrumbWrapper>
     </nav>
   );
 };
 
 Breadcrumbs.Crumb = Crumb;
-export default Breadcrumbs;
