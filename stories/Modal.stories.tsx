@@ -25,9 +25,10 @@ export const Primary = Template.bind({});
 Primary.args = {
   children: (
     <>
-      <ModalHeader>
-        <p className="prose dark:prose-dark font-semibold">This is a modal</p>
-      </ModalHeader>
+      <ModalHeader
+        title="Modal"
+        handleClose={() => console.log("debug close")}
+      />
       <ModalContent>
         <p>
           sample texts go here. Width always look down to find the maximum width
