@@ -1,16 +1,27 @@
+import React from "react";
+import { fadeIn } from "utils/motion";
 import { Post } from "../../types/Post";
 import Tag from "./Tag";
+import { motion } from "framer-motion";
+import WithAnimation from "components/hoc/WithAnimation";
 
 export interface CardProps {
+  index: number;
   post: Post;
 }
 
 const BlogPostCard = (props: CardProps) => {
-  const { post } = props;
+  const { index, post } = props;
   return (
-    <a
+    <motion.a
       href={`/blogs/${post.slug}`}
       className="flex flex-col items-start min-h-min p-6 max-w-2xl bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+      variants={fadeIn({
+        direction: "right",
+        type: "spring",
+        delay: index * 0.5,
+        duration: 0.75
+      })}
     >
       <div className="grid grid-cols-3 gap-2">
         <h4 className="mb-1 col-span-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -28,8 +39,8 @@ const BlogPostCard = (props: CardProps) => {
           {post.description}
         </p>
       </div>
-    </a>
+    </motion.a>
   );
 };
 
-export default BlogPostCard;
+export default WithAnimation(BlogPostCard);
