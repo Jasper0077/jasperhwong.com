@@ -14,7 +14,7 @@ const Blogs: NextPage = () => {
 
       <div className="flex flex-col space-y-8 w-full max-w-2xl relative mx-auto pt-8 pb-8 sm:pb-16">
         {posts.map((post, index) => (
-          <BlogPostCard key={index} post={post} />
+          <BlogPostCard key={index + post.slug} index={index} post={post} />
         ))}
       </div>
     </Wrapper>
