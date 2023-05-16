@@ -6,14 +6,14 @@ const WithAnimation =
   (props) => {
     if (!Component) return null;
     return (
-      <motion.section
+      <motion.div
         variants={staggerContainer()}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
       >
         <Component {...(props as P)} />
-      </motion.section>
+      </motion.div>
     );
   };
 
