@@ -1,3 +1,5 @@
+"use client";
+
 import { cva } from "class-variance-authority";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";

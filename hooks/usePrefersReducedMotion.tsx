@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 const QUERY = "(prefers-reduced-motion: no-preference)";

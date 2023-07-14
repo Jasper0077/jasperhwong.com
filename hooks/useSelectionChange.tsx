@@ -1,3 +1,5 @@
+"use client";
+
 import areEqual from "deep-equal";
 import React from "react";
 import { BaseEditor, BaseRange } from "slate";

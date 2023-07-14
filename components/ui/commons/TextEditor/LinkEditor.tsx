@@ -1,3 +1,5 @@
+"use client";
+
 import isUrl from "is-url";
 import React from "react";
 import {
