@@ -2,6 +2,9 @@
 
 module.exports = {
   reactStrictMode: true,
+  experimental: {
+    newNextLinkBehavior: false
+  },
   swcMinify: true,
   webpack: (config) => {
     config.module.rules.push({
