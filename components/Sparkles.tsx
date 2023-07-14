@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import usePrefersReducedMotion from "../hooks/usePrefersReducedMotion";
 import useRandomInterval from "../hooks/useRandomInterval";

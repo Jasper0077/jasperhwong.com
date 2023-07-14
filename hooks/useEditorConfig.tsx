@@ -1,5 +1,3 @@
-"use client";
-
 import cn from "classnames";
 import isHotkey from "is-hotkey";
 import Link from "next/link";

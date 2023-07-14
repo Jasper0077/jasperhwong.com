@@ -1,5 +1,3 @@
-"use client";
-
 import { BaseEditor, BaseRange, BaseSelection } from "slate";
 import React from "react";
 import IconButton from "@ui/commons/buttons/IconButton";

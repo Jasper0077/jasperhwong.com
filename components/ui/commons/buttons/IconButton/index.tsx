@@ -1,5 +1,3 @@
-"use client";
-
 import React, { DOMAttributes } from "react";
 import cn from "classnames";
 

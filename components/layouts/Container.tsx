@@ -1,5 +1,4 @@
-"use client";
-
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState, useEffect, Key } from "react";
 import { useTheme } from "next-themes";
@@ -77,6 +76,20 @@ export default function Container({ children, customMeta }: ContainerProps) {
 
   return (
     <div className="bg-gray-50 dark:bg-gray-900">
+      <Head>
+        <title>{meta.title}</title>
+        <meta name="description" content={meta.description}></meta>
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:description" content={meta.description} />
+        <meta
+          property="og:image"
+          content={
+            "https://avatars.githubusercontent.com/u/48860446?s=400&u=8fff5d79830aa932769873b301fb2cabdaa3ffaa&v=4"
+          }
+        />
+        <meta property="og:url" content={meta.url} />
+        <meta property="og:site_name" content={meta.name} />
+      </Head>
       <div className="flex flex-col justify-center px-10">
         <Navbar>
           <a href="#skip" className="skip-nav">

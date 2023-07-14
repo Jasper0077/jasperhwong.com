@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 
 // Utility helper for random number generation
