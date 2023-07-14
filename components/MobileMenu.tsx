@@ -53,40 +53,44 @@ export default function MobileMenu() {
             className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
             style={{ transitionDelay: "150ms" }}
           >
-            <Link href="/">
-              <a onClick={toggleMenu} className="flex w-auto pb-4">
-                Home
-              </a>
+            <Link href="/" onClick={toggleMenu} className="flex w-auto pb-4">
+              Home
             </Link>
           </li>
           <li
             className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
             style={{ transitionDelay: "200ms" }}
           >
-            <Link href="/about">
-              <a onClick={toggleMenu} className="flex w-auto pb-4">
-                About
-              </a>
+            <Link
+              href="/about"
+              onClick={toggleMenu}
+              className="flex w-auto pb-4"
+            >
+              About
             </Link>
           </li>
           <li
             className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
             style={{ transitionDelay: "250ms" }}
           >
-            <Link href="/blogs">
-              <a onClick={toggleMenu} className="flex w-auto pb-4">
-                Blogs
-              </a>
+            <Link
+              href="/blogs"
+              onClick={toggleMenu}
+              className="flex w-auto pb-4"
+            >
+              Blogs
             </Link>
           </li>
           <li
             className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
             style={{ transitionDelay: "275ms" }}
           >
-            <Link href="/snippets">
-              <a onClick={toggleMenu} className="flex w-auto pb-4">
-                Snippets
-              </a>
+            <Link
+              href="/snippets"
+              onClick={toggleMenu}
+              className="flex w-auto pb-4"
+            >
+              Snippets
             </Link>
           </li>
         </ul>
