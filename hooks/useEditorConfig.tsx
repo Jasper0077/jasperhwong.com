@@ -50,8 +50,8 @@ const renderLeaf = ({ attributes, children, leaf }: RenderLeafProps) => {
   }
   if (leaf.link) {
     children = (
-      <Link href="/">
-        <a {...attributes}>{children}</a>
+      <Link href="/" {...attributes}>
+        {children}
       </Link>
     );
   }
