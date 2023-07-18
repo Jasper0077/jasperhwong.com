@@ -12,6 +12,7 @@
   },
   "types": "module",
   "dependencies": {
+    "@apollo/client": "^3.7.17",
     "@mdx-js/loader": "^2.1.2",
     "@notionhq/client": "^2.2.3",
     "@octokit/rest": "^20.0.1",
@@ -27,6 +28,7 @@
     "deep-equal": "^2.2.0",
     "file-loader": "^6.2.0",
     "framer-motion": "^10.12.8",
+    "graphql": "^16.7.1",
     "gray-matter": "^4.0.3",
     "is-hotkey": "^0.2.0",
     "is-url": "^1.2.4",
