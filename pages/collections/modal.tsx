@@ -12,10 +12,6 @@ import Wrapper from "@ui/commons/Wrapper";
 const ModalPage = () => {
   const [open, setOpen] = React.useState<boolean>(false);
 
-  React.useEffect(() => {
-    console.log("debug", open);
-  }, [open]);
-
   return (
     <Wrapper>
       <h1 className="flex w-full max-w-2xl text-4xl font-bold mx-auto pt-8 pb-8 sm:pb-16">
