@@ -33,7 +33,7 @@ const Home: NextPage = () => {
           <AnimatedHeading
             variant="h1"
             className="flex w-full max-w-2xl text-4xl font-bold mx-auto pt-8 pb-4 sm:pb-8"
-            text="Hi, I'm Jasper Hwong!"
+            text="Hi, I'm Jasper!"
           />
           <h1 className="text-lg dark:text-gray-200 text-gray-700">
             I am a software developer, tech enthusiast. I work as a Full-stack
