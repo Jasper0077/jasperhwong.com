@@ -89,6 +89,16 @@ export default function MobileMenu() {
               </a>
             </Link>
           </li>
+          <li
+            className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
+            style={{ transitionDelay: "275ms" }}
+          >
+            <Link href="/collections">
+              <a onClick={toggleMenu} className="flex w-auto pb-4">
+                Collections
+              </a>
+            </Link>
+          </li>
         </ul>
       )}
     </>
