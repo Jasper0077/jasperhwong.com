@@ -50,13 +50,13 @@ const Home: NextPage = () => {
               key={index}
               className="flex flex-col items-start justify-between gap-4 group mb-12"
             >
-              <h4 className="font-semibold text-md group-hover:text-blue-400">
+              <h4 className="font-semibold text-md group-hover:text-blue-600">
                 {post.title}
               </h4>
               <p className="text-sm">{post.description}</p>
               <a
                 href={`/blogs/${post.slug}`}
-                className="font-thin text-sm group-hover:text-blue-400"
+                className="font-thin text-sm group-hover:text-blue-600"
               >
                 Read more
               </a>

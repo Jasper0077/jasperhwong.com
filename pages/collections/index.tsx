@@ -59,18 +59,18 @@ const Collections = ({
               key={index}
               className="group relative flex flex-col items-start"
             >
-              <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"></div>
-              <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-                <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl"></div>
+              <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-gray-900/5 dark:border dark:border-gray-700/50 dark:bg-gray-800 dark:ring-0"></div>
+              <h2 className="mt-6 text-base font-semibold text-gray-800 dark:text-gray-200">
+                <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-gray-200 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-gray-700/50 sm:-inset-x-6 sm:rounded-2xl"></div>
                 <a href={repo.url} target="_blank" rel="noreferrer noopener">
                   <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
                   <span className="relative z-10">{repo.name}</span>
                 </a>
               </h2>
-              <p className="relatvie z-10 mt-2 text-sm text-zinc-600 dark:text0zinc-400">
+              <p className="relatvie z-10 mt-2 text-sm text-gray-600 dark:text-gray-400">
                 {repo.description}
               </p>
-              <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
+              <p className="relative z-10 mt-6 flex text-sm font-medium text-gray-400 transition group-hover:text-blue-600 dark:text-gray-200">
                 <svg
                   viewBox="0 0 24 24"
                   aria-hidden="true"
