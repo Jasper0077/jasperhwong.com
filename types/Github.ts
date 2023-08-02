@@ -15,6 +15,8 @@ export interface Repository {
   url: string;
   repositoryTopics?: RepositoryTopicConnection;
   languages?: LanguageConnection;
+  openGraphImageUrl: string;
+  usesCustomOpenGraphImage: boolean;
 }
 
 /** Repository */

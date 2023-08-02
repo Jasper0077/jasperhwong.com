@@ -6,6 +6,7 @@ import Wrapper from "@ui/commons/Wrapper";
 import { Repository } from "types/Github";
 import client from "utils/apolloClient";
 import { gql } from "@apollo/client";
+import Image from "next/image";
 
 export const getStaticProps: GetStaticProps<{
   pinnableItemConnection: PinnableItemConnection | any;
@@ -34,6 +35,8 @@ export const getStaticProps: GetStaticProps<{
                     color
                   }
                 }
+                openGraphImageUrl
+                usesCustomOpenGraphImage
               }
             }
           }
@@ -59,7 +62,14 @@ const Collections = ({
               key={index}
               className="group relative flex flex-col items-start"
             >
-              <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-gray-900/5 dark:border dark:border-gray-700/50 dark:bg-gray-800 dark:ring-0"></div>
+              {repo.usesCustomOpenGraphImage && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white dark:bg-gray-500 shadow-md shadow-zinc-800/5 ring-1 ring-gray-900/5 dark:border dark:border-gray-700/50 dark:ring-0"
+                  src={repo.openGraphImageUrl}
+                  alt={repo.openGraphImageUrl}
+                />
+              )}
               <h2 className="mt-6 text-base font-semibold text-gray-800 dark:text-gray-200">
                 <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-gray-200 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-gray-700/50 sm:-inset-x-6 sm:rounded-2xl"></div>
                 <a href={repo.url} target="_blank" rel="noreferrer noopener">

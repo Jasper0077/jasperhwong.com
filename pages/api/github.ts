@@ -31,6 +31,8 @@ export default async function handler(
                       color
                     }
                   }
+                  openGraphImageUrl
+                  usesCustomOpenGraphImage
                 }
               }
             }
