@@ -41,7 +41,16 @@ const PostPage: React.FC<Props> = ({
       </h1>
       <div className="flex flex-col items-start justify-between w-full mt-2 md:flex-row md:items-center">
         <div className="flex items-center">
-          <p className="text-sm text-gray-700 dark:text-gray-300">
+          <p className="text-sm text-gray-700 dark:text-gray-300 flex flex-row items-center gap-4">
+            {frontMatter.avatar && (
+              <Image
+                className="rounded-full bg-gray-200 dark:bg-gray-600"
+                src={frontMatter.avatar}
+                alt={`${frontMatter.author}'s profile picture`}
+                width={36}
+                height={36}
+              />
+            )}{" "}
             {`${frontMatter.author} / ${frontMatter.date}`}
           </p>
         </div>
