@@ -22,7 +22,7 @@
   --color-error: hsl(340deg 95% 60% / 1);
 }
 
-@font-face {
+/* @font-face {
   font-family: "Futura";
   font-style: normal;
   font-weight: 100 900;
@@ -36,7 +36,7 @@
   font-weight: 100 900;
   font-display: optional;
   src: url(/fonts/futura-italic.ttf) format("ttf");
-}
+} */
 
 ::selection {
   background-color: #47a3f3;
@@ -306,5 +306,5 @@ table {
 
 /* Blog stylings */
 aside {
-  @apply bg-[#FFDD0040] dark:bg-[#473A1F]  border-l-[#FF9D00] dark:border-[#FFAA00] text-gray-900 dark:text-white my-4 p-4 rounded max-w-max sm:max-w-sm border-l-4;
+  @apply bg-gray-200 dark:bg-gray-700  border-l-gray-300 dark:border-gray-600 text-gray-900 dark:text-white my-4 p-4 rounded max-w-sm sm:max-w-full border-l-4 overflow-x-clip;
 }
