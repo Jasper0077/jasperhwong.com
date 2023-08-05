@@ -33,6 +33,7 @@
     "gray-matter": "^4.0.3",
     "i18next": "^23.4.1",
     "i18next-browser-languagedetector": "^7.1.0",
+    "i18next-http-backend": "^2.2.1",
     "is-hotkey": "^0.2.0",
     "is-url": "^1.2.4",
     "mdx-embed": "^1.1.2",
