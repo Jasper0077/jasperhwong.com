@@ -11,10 +11,12 @@ import MobileMenu from "../MobileMenu";
 import Navbar from "@ui/commons/Navbar";
 import IconButton from "@ui/commons/buttons/IconButton";
 import ListboxInput from "@ui/commons/Listbox";
+import { useTranslation } from "react-i18next";
 
 export interface NavItemProps {
   href: Url | string;
   text: string;
+  translation?: string;
 }
 
 export interface ContainerProps {
@@ -22,7 +24,7 @@ export interface ContainerProps {
   customMeta?: Record<Key, string>;
 }
 
-function NavItem({ href, text }: NavItemProps) {
+function NavItem({ href, text, translation }: NavItemProps) {
   const router = useRouter();
   const isActive = router.asPath === href;
 
@@ -45,7 +47,7 @@ function NavItem({ href, text }: NavItemProps) {
             }}
             className={"hover:no-shadow"}
           >
-            {text}
+            {translation || text}
           </p>
         </span>
       </a>
@@ -54,6 +56,7 @@ function NavItem({ href, text }: NavItemProps) {
 }
 
 export default function Container({ children, customMeta }: ContainerProps) {
+  const { t } = useTranslation();
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
   const [play] = useSound("/sounds/click.mp3");
@@ -99,34 +102,18 @@ export default function Container({ children, customMeta }: ContainerProps) {
           <div className="ml-[-0.60rem]">
             <MobileMenu />
             <div className="flex flex-wrap mx-2">
-              <NavItem href="/" text="Home" />
-              <NavItem href="/about" text="About" />
-              <NavItem href="/blogs" text="Blogs" />
-              <NavItem href="/collections" text="Collections" />
+              <NavItem href="/" text="Home" translation={t("Home")} />
+              <NavItem href="/about" text="About" translation={t("About")} />
+              <NavItem href="/blogs" text="Blogs" translation={t("Blogs")} />
+              <NavItem
+                href="/collections"
+                text="Collections"
+                translation={t("Collections")}
+              />
             </div>
           </div>
           <div className="flex flex-row items-center justify-between space-x-4">
             <ListboxInput />
-            {/* <IconButton
-              handleClick={() => {}}
-              className="w-9 h-9 flex items-center justify-center p-[0.25rem]"
-            >
-              {mounted && (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802"
-                  />
-                </svg>
-              )}
-            </IconButton> */}
             <IconButton
               handleClick={handleThemeClick}
               className="w-9 h-9 flex items-center justify-center"
