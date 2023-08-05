@@ -1,15 +1,20 @@
 import { Fragment, useState, useEffect } from "react";
 import { Listbox, Transition } from "@headlessui/react";
+import { i18n } from "utils/i18n";
 
 interface Props {}
 
-const languages = ["English", "Chinese"];
+const languages: Record<string, { nativeName: string }> = {
+  en: { nativeName: "English" },
+  ch: { nativeName: "Chinese" }
+};
 
 function classNames(...classes: Array<string>) {
   return classes.filter(Boolean).join(" ");
 }
 
 const ListboxInput = ({}: Props) => {
+  // const { i18n } = useTranslation();
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);
@@ -49,8 +54,8 @@ const ListboxInput = ({}: Props) => {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-max overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                {languages.map((language) => (
+              <Listbox.Options className="absolute z-50 mt-1 bg-white dark:bg-gray-400 max-h-60 w-max overflow-auto rounded-md py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                {Object.keys(languages).map((language) => (
                   <Listbox.Option
                     key={language}
                     className={({ active }) =>
@@ -59,7 +64,9 @@ const ListboxInput = ({}: Props) => {
                         "relative cursor-default select-none py-2 pl-8 pr-4"
                       )
                     }
-                    value={language}
+                    value={languages[language].nativeName}
+                    onClick={() => i18n.changeLanguage(language)}
+                    disabled={i18n.resolvedLanguage === language}
                   >
                     {({ selected, active }) => (
                       <>
@@ -69,13 +76,13 @@ const ListboxInput = ({}: Props) => {
                             "block truncate"
                           )}
                         >
-                          {language}
+                          {languages[language].nativeName}
                         </span>
 
                         {selected ? (
                           <span
                             className={classNames(
-                              active ? "text-white" : "text-gray-400",
+                              active ? " text-white" : "text-gray-400",
                               "absolute inset-y-0 left-0 flex items-center pl-1.5"
                             )}
                           >
