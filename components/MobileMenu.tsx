@@ -3,8 +3,10 @@ import Link from "next/link";
 import useDelayedRender from "use-delayed-render";
 import { useState, useEffect } from "react";
 import styles from "../styles/mobileMenu.module.css";
+import { useTranslation } from "react-i18next";
 
 export default function MobileMenu() {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { mounted: isMenuMounted, rendered: isMenuRendered } = useDelayedRender(
     isMenuOpen,
@@ -55,7 +57,7 @@ export default function MobileMenu() {
           >
             <Link href="/">
               <a onClick={toggleMenu} className="flex w-auto pb-4">
-                Home
+                {t("Home") ?? "Home"}
               </a>
             </Link>
           </li>
@@ -65,17 +67,7 @@ export default function MobileMenu() {
           >
             <Link href="/about">
               <a onClick={toggleMenu} className="flex w-auto pb-4">
-                About
-              </a>
-            </Link>
-          </li>
-          <li
-            className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
-            style={{ transitionDelay: "250ms" }}
-          >
-            <Link href="/blogs">
-              <a onClick={toggleMenu} className="flex w-auto pb-4">
-                Blogs
+                {t("About") ?? "About"}
               </a>
             </Link>
           </li>
@@ -83,9 +75,9 @@ export default function MobileMenu() {
             className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
             style={{ transitionDelay: "275ms" }}
           >
-            <Link href="/snippets">
+            <Link href="/blogs">
               <a onClick={toggleMenu} className="flex w-auto pb-4">
-                Snippets
+                {t("Blogs") ?? "Blogs"}
               </a>
             </Link>
           </li>
@@ -95,7 +87,7 @@ export default function MobileMenu() {
           >
             <Link href="/collections">
               <a onClick={toggleMenu} className="flex w-auto pb-4">
-                Collections
+                {t("Collections") ?? "Collections"}
               </a>
             </Link>
           </li>
