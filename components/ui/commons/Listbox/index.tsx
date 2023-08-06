@@ -1,6 +1,8 @@
 import { Fragment, useState, useEffect } from "react";
 import { Listbox, Transition } from "@headlessui/react";
-import { i18n } from "utils/i18n";
+// import { i18n } from "utils/i18n";
+import { useRouter } from "next/router";
+import React from "react";
 
 interface Props {}
 
@@ -14,20 +16,30 @@ function classNames(...classes: Array<string>) {
 }
 
 const ListboxInput = ({}: Props) => {
-  // const { i18n } = useTranslation();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
+  const router = useRouter();
+  const { locale } = router;
+  const t = locale === "en" ? "en" : "ch";
+  const [selected, setSelected] = React.useState<string>(t);
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => {
     setMounted(true);
   }, []);
 
-  const [selected, setSelected] = useState<string>("English");
+  // const [selected, setSelected] = useState<string>("English");
+
+  const changeLanguage = (language: string) => {
+    const { pathname } = router;
+    setSelected(language);
+    router.push(pathname, pathname, { locale: language });
+  };
+
   return (
     <Listbox value={selected} onChange={setSelected}>
       {({ open }) => (
         <>
           <div className="relative">
             <Listbox.Button className="relative w-9 h-9 cursor-default rounded-lg bg-gray-200 p-[0.25rem] text-gray-900 dark:bg-gray-600 hover:ring-2 ring-0 ring-gray-300 transition-all ring-inset focus:outline-none focus:ring-2">
-              {mounted && selected === "English" ? (
+              {mounted && (selected === "en" || "") ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -64,9 +76,9 @@ const ListboxInput = ({}: Props) => {
                         "relative cursor-default select-none py-2 pl-8 pr-4"
                       )
                     }
-                    value={languages[language].nativeName}
-                    onClick={() => i18n.changeLanguage(language)}
-                    disabled={i18n.resolvedLanguage === language}
+                    value={language}
+                    onClick={() => changeLanguage(language)}
+                    disabled={selected === language}
                   >
                     {({ selected, active }) => (
                       <>

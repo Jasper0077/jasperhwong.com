@@ -11,7 +11,8 @@ import MobileMenu from "../MobileMenu";
 import Navbar from "@ui/commons/Navbar";
 import IconButton from "@ui/commons/buttons/IconButton";
 import ListboxInput from "@ui/commons/Listbox";
-import { useTranslation } from "react-i18next";
+import en from "../../locales/en";
+import ch from "../../locales/ch";
 
 export interface NavItemProps {
   href: Url | string;
@@ -56,7 +57,9 @@ function NavItem({ href, text, translation }: NavItemProps) {
 }
 
 export default function Container({ children, customMeta }: ContainerProps) {
-  const { t } = useTranslation();
+  const router = useRouter();
+  const { locale } = router;
+  const t = locale === "en" ? en : ch;
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
   const [play] = useSound("/sounds/click.mp3");
@@ -102,13 +105,13 @@ export default function Container({ children, customMeta }: ContainerProps) {
           <div className="ml-[-0.60rem]">
             <MobileMenu />
             <div className="flex flex-wrap mx-2">
-              <NavItem href="/" text="Home" translation={t("Home")} />
-              <NavItem href="/about" text="About" translation={t("About")} />
-              <NavItem href="/blogs" text="Blogs" translation={t("Blogs")} />
+              <NavItem href="/" text="Home" translation={t.Home} />
+              <NavItem href="/about" text="About" translation={t.About} />
+              <NavItem href="/blogs" text="Blogs" translation={t.Blogs} />
               <NavItem
                 href="/collections"
                 text="Collections"
-                translation={t("Collections")}
+                translation={t.Collections}
               />
             </div>
           </div>

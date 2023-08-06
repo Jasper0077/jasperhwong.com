@@ -3,10 +3,14 @@ import Link from "next/link";
 import useDelayedRender from "use-delayed-render";
 import { useState, useEffect } from "react";
 import styles from "../styles/mobileMenu.module.css";
-import { useTranslation } from "react-i18next";
+import { useRouter } from "next/router";
+import en from "../locales/en";
+import ch from "../locales/ch";
 
 export default function MobileMenu() {
-  const { t } = useTranslation();
+  const router = useRouter();
+  const { locale } = router;
+  const t = locale === "en" ? en : ch;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { mounted: isMenuMounted, rendered: isMenuRendered } = useDelayedRender(
     isMenuOpen,
@@ -57,7 +61,7 @@ export default function MobileMenu() {
           >
             <Link href="/">
               <a onClick={toggleMenu} className="flex w-auto pb-4">
-                {t("Home") ?? "Home"}
+                {t.Home ?? "Home"}
               </a>
             </Link>
           </li>
@@ -67,7 +71,7 @@ export default function MobileMenu() {
           >
             <Link href="/about">
               <a onClick={toggleMenu} className="flex w-auto pb-4">
-                {t("About") ?? "About"}
+                {t.About ?? "About"}
               </a>
             </Link>
           </li>
@@ -77,7 +81,7 @@ export default function MobileMenu() {
           >
             <Link href="/blogs">
               <a onClick={toggleMenu} className="flex w-auto pb-4">
-                {t("Blogs") ?? "Blogs"}
+                {t.Blogs ?? "Blogs"}
               </a>
             </Link>
           </li>
@@ -87,7 +91,7 @@ export default function MobileMenu() {
           >
             <Link href="/collections">
               <a onClick={toggleMenu} className="flex w-auto pb-4">
-                {t("Collections") ?? "Collections"}
+                {t.Collections ?? "Collections"}
               </a>
             </Link>
           </li>
