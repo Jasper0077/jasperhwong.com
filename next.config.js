@@ -18,5 +18,9 @@ module.exports = {
       "avatars.githubusercontent.com",
       "repository-images.githubusercontent.com"
     ]
+  },
+  i18n: {
+    locales: ["en", "ch"],
+    defaultLocale: "en"
   }
 };
