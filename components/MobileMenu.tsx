@@ -4,13 +4,13 @@ import useDelayedRender from "use-delayed-render";
 import { useState, useEffect } from "react";
 import styles from "../styles/mobileMenu.module.css";
 import { useRouter } from "next/router";
-import en from "../locales/en";
-import ch from "../locales/ch";
+import { enCommon } from "../locales/en";
+import { chCommon } from "../locales/ch";
 
 export default function MobileMenu() {
   const router = useRouter();
   const { locale } = router;
-  const t = locale === "en" ? en : ch;
+  const t = locale === "en" ? enCommon : chCommon;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { mounted: isMenuMounted, rendered: isMenuRendered } = useDelayedRender(
     isMenuOpen,

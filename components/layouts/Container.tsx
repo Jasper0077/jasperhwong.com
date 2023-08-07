@@ -11,8 +11,8 @@ import MobileMenu from "../MobileMenu";
 import Navbar from "@ui/commons/Navbar";
 import IconButton from "@ui/commons/buttons/IconButton";
 import ListboxInput from "@ui/commons/Listbox";
-import en from "../../locales/en";
-import ch from "../../locales/ch";
+import { enCommon } from "../../locales/en";
+import { chCommon } from "../../locales/ch";
 
 export interface NavItemProps {
   href: Url | string;
@@ -59,7 +59,7 @@ function NavItem({ href, text, translation }: NavItemProps) {
 export default function Container({ children, customMeta }: ContainerProps) {
   const router = useRouter();
   const { locale } = router;
-  const t = locale === "en" ? en : ch;
+  const t = locale === "en" ? enCommon : chCommon;
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
   const [play] = useSound("/sounds/click.mp3");
