@@ -6,7 +6,6 @@ import Wrapper from "@ui/commons/Wrapper";
 import { Repository } from "types/Github";
 import client from "utils/apolloClient";
 import { gql } from "@apollo/client";
-import Image from "next/image";
 
 export const getStaticProps: GetStaticProps<{
   pinnableItemConnection: PinnableItemConnection | any;
@@ -60,7 +59,7 @@ const Collections = ({
           (repo: Repository, index: number) => (
             <div
               key={index}
-              className="group relative flex flex-col items-start"
+              className="group relative flex flex-col items-start px-8 py-2 bg-gray-200 dark:bg-gray-600 rounded-lg scale-95 hover:scale-100"
             >
               {repo.usesCustomOpenGraphImage && (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -71,7 +70,6 @@ const Collections = ({
                 />
               )}
               <h2 className="mt-6 text-base font-semibold text-gray-800 dark:text-gray-200">
-                <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-gray-200 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-gray-700/50 sm:-inset-x-6 sm:rounded-2xl"></div>
                 <a href={repo.url} target="_blank" rel="noreferrer noopener">
                   <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
                   <span className="relative z-10">{repo.name}</span>
