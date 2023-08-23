@@ -3,6 +3,7 @@ import { Listbox, Transition } from "@headlessui/react";
 // import { i18n } from "utils/i18n";
 import { useRouter } from "next/router";
 import React from "react";
+import { formatDynamicPath } from "utils/path";
 
 interface Props {}
 
@@ -28,9 +29,9 @@ const ListboxInput = ({}: Props) => {
   // const [selected, setSelected] = useState<string>("English");
 
   const changeLanguage = (language: string) => {
-    const { pathname } = router;
-    setSelected(language);
-    router.push(pathname, pathname, { locale: language });
+    const { pathname, query } = router;
+    const path = formatDynamicPath(pathname, query);
+    router.push(path, path, { locale: language });
   };
 
   return (
