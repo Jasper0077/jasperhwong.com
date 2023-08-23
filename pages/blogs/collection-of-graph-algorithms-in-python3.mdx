@@ -1,0 +1,32 @@
+---
+slug: "collection-of-graph-algorithms-in-python3"
+title: "Collection of Graph Algorithms in Python3"
+author: "Jasper Hwong"
+avatar: "https://avatars.githubusercontent.com/u/48860446?s=400&u=8fff5d79830aa932769873b301fb2cabdaa3ffaa&v=4"
+date: "23 Aug 2023"
+---
+
+This post is basically a rewrite from a Leetcode [study guide](https://leetcode.com/discuss/study-guide/1326900/graph-algorithms-problems-to-practice).
+
+# Terminology
+
+First, let's talk about some terminologies that we will use for the rest of the content.
+
+1. Graph: A graph in dscrete mathematics is a structure amounting to a set of objects in which some paris of objects are is some sense "related".
+2. Vertex/vertices: A vertex is a single object abstraction (or we normally call it a node) in a graph.
+3. Edge/edges: An edge is a line connecting two node/vertices in a graph. An edge can be directed or undirected. An directed edge from A to B, is strictly irrevisible from B to A. Whilst, undirected edge between A and B can be travelled from both ends.
+4. Weighted graph: An weighted graph is a type of graph whereby a number is assigned to each edge. Such weight can be represented as certain value like cost, time, capacities, etc.
+5. Bipartite graph: A bipartite graph is a grah where all nodes can be divided into two sets, say W and X. So that, no two nodes in W share a common edge, as well as X.
+6. Tree: A tree is an undirected graph in which any two vertices are connected by exactly on path, or sometimes a connected acyclic undirected graph.
+
+## Generate a Graph
+
+Depends on the input that the question has provided, normally the inputs will be an array of `edges`, to represent the connectivity of all nodes.
+Below, is an example of generating an `adjancency list` to represent a undirected graph.
+
+```python
+    graph = collections.defaultdict(list)
+    for u, v in paths:
+        graph[u].append(v)
+        graph[v].append(u)
+```

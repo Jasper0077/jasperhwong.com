@@ -43,5 +43,19 @@ export const posts: Array<Post> = [
     description: "What I have learned by building a Modal component...",
     date: "13 Dec 2022",
     tags: ["React", "CSS", "Tailwind"]
+  },
+  {
+    slug: "collection-of-graph-algorithms-in-python3",
+    title: "Collection of Graph Algorithm in Python3",
+    author: [
+      {
+        name: "Jasper Hwong",
+        github: "Jasper0077"
+      }
+    ],
+    description:
+      "A comprehensive list of graph algorithms and leetcode problems.",
+    date: "23 Aug 2023",
+    tags: ["Graph Theory", "Python3"]
   }
 ];
