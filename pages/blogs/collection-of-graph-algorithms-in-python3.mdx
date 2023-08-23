@@ -6,7 +6,8 @@ avatar: "https://avatars.githubusercontent.com/u/48860446?s=400&u=8fff5d79830aa9
 date: "23 Aug 2023"
 ---
 
-This post is basically a rewrite from a Leetcode [study guide](https://leetcode.com/discuss/study-guide/1326900/graph-algorithms-problems-to-practice).
+Graph problems are intereseting and fun. It's my favourite coding problem variant of all times!
+This post is heavily inspried by a Leetcode [study guide](https://leetcode.com/discuss/study-guide/1326900/graph-algorithms-problems-to-practice).
 
 # Terminology
 
@@ -22,11 +23,55 @@ First, let's talk about some terminologies that we will use for the rest of the 
 ## Generate a Graph
 
 Depends on the input that the question has provided, normally the inputs will be an array of `edges`, to represent the connectivity of all nodes.
-Below, is an example of generating an `adjancency list` to represent a undirected graph.
+Below, is an example of generating an `adjacency list` to represent a undirected graph.
 
 ```python
     graph = collections.defaultdict(list)
     for u, v in paths:
         graph[u].append(v)
         graph[v].append(u)
+```
+
+# Traversal Algorithms
+
+We have two famous traversal algorithm to solve a graph problem. A traversal algorithm can be defined as an algorithm to search a node or traverse from node to node.
+
+## Depth First Search
+
+A DFS can be implemented by using a recursive function. So, based on the graph that we have generated above,
+
+```python
+    visited = set()
+
+    def dfs(node):
+        if node not in visited:
+            visited.add(node)
+            # Do something here
+            for v in graph[u]:
+                dfs(node)
+        return
+```
+
+We use a `set` here to make sure we won't visit a visited node again in `O(1)` time.
+
+## Breath First Search
+
+A BFS tends to look for the neighbouring nodes first, and then visit the subsequent degree nodes. Hence, we often say it is visiting nodes layer by layer.
+Since, its nature of visiting nodes from the first degree, it is often used to search for a shortest target/node. We use a queue or priority queue to implement a BFS.
+
+```python
+    visited = set()
+    bfs = collections.deque([startNode])
+
+    while bfs:
+        u = bfs.popleft()
+        if u == target:
+            # Do something
+            return True
+        visited.add(node)
+        for v in graph[u]:
+            if v not in visited:
+                bfs.append(v)
+
+    return False
 ```
