@@ -75,3 +75,33 @@ Since, its nature of visiting nodes from the first degree, it is often used to s
 
     return False
 ```
+
+## Dijkstra's Algorithm
+
+Dijkstra's Algorithm is used to find a shortest paths between a given node (starting node) to other nodes in a graph.
+This algorithm uses the weights of the edges to find the path that minimize the total distance between the source and other nodes.
+It utilizes a `priority queue` and will always process the smallest edge's cost in the heap. Thus, we are able to produce the optimal cost to reach the target node.
+Below shows an example from network delay problem in a directed graph.
+
+```python
+        graph = collections.defaultdict(list)
+        for u, v, w in times: # source, dest, cost
+            graph[u].append((w, v))
+
+        heap = [(0, k)]
+        dist = [float(inf)] * (n)
+        visited = set()
+        dist[k] = 0
+
+        while pq:
+            w, u = heapq.heappop(pq)
+            if u in visited: continue
+            visited.add(u)
+            if dist[u] < w: continue
+            for v, cost in graph[u]:
+                if dist[v] > dist[u] + cost:
+                    dist[v] = dist[u] + cost
+                    heapq.heappush(pq, (dist[v], v))
+        res = max(dist[1:])
+        return res if res != float('inf') else -1
+```
