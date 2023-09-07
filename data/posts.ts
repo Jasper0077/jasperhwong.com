@@ -41,7 +41,7 @@ export const posts: Array<Post> = [
       }
     ],
     description: "What I have learned by building a Modal component...",
-    date: "13 Dec 2022",
+    date: "20 Mar 2023",
     tags: ["React", "CSS", "Tailwind"]
   },
   {
