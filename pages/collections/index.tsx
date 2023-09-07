@@ -59,7 +59,7 @@ const Collections = ({
           (repo: Repository, index: number) => (
             <div
               key={index}
-              className="group relative flex flex-col items-start px-8 py-2 bg-gray-200 dark:bg-gray-600 rounded-lg scale-95 hover:scale-100"
+              className="group relative flex flex-col items-start px-8 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg scale-95 hover:scale-100"
             >
               {repo.usesCustomOpenGraphImage && (
                 // eslint-disable-next-line @next/next/no-img-element
