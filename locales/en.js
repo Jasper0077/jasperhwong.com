@@ -1,6 +1,9 @@
+/* eslint-disable prettier/prettier */
 export const enCommon = {
-  Home: "Home",
-  Blogs: "Blogs",
-  About: "About",
-  Collections: "Collections"
+  home: "Home",
+  blogs: "Blogs",
+  about: "About",
+  collections: "Collections",
+  "technical-articles": "Technical Articles",
+  "about-me": "About Me"
 };
