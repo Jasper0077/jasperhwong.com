@@ -31,8 +31,11 @@ function getPostsFilePaths(): string[] {
   );
 }
 
-export function getPost(slug: string): Post {
-  const fullPath = join(POSTS_PATH, `${slug}.mdx`);
+export function getPost(slug: string, locale = "en"): Post {
+  const fullPath = join(
+    POSTS_PATH,
+    locale === "en" ? `${slug}.mdx` : `${slug}.ch.mdx`
+  );
   const fileContents = fs.readFileSync(fullPath, "utf-8");
   const { data, content } = matter(fileContents);
 
