@@ -9,6 +9,7 @@ import Image from "next/image";
 
 // workaround while waiting author to migrate components to support mdx V2
 import { CodeSandbox } from "mdx-embed/dist/components/codesandbox";
+import LoadingSpinner from "@ui/commons/LoadingSpinner";
 
 // components
 const Sparkles = dynamic(() => import("../../components/Sparkles"));
@@ -34,6 +35,12 @@ const PostPage: React.FC<Props> = ({
   wordCount,
   readingTime
 }: Props) => {
+  if (!source || !frontMatter)
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <LoadingSpinner />
+      </div>
+    );
   return (
     <article className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
       <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
@@ -77,7 +84,8 @@ interface Iparams extends ParsedUrlQuery {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params as Iparams;
-  const { content, data } = getPost(slug);
+  const locale = context.locale;
+  const { content, data } = getPost(slug, locale);
   // serialize the data on the server side
   const { html, wordCount, readingTime } = await mdxToHtml(content);
   return {
@@ -103,6 +111,6 @@ export const getStaticPaths: GetStaticPaths = () => {
 
   return {
     paths,
-    fallback: false
+    fallback: true
   };
 };
