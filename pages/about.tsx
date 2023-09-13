@@ -1,10 +1,16 @@
+import { useRouter } from "next/router";
 import Timeline from "../components/Timeline";
+import { enCommon } from "locales/en";
+import { chCommon } from "locales/ch";
 
 const About = () => {
+  const router = useRouter();
+  const { locale } = router;
+  const t = locale === "en" ? enCommon : chCommon;
   return (
     <div className="flex flex-col justify-center max-w-2xl mx-auto mb-16 w-full">
       <h1 className="flex w-full max-w-2xl text-4xl font-bold mx-auto pt-8 pb-8 sm:pb-16">
-        About Me
+        {t["about-me"]}
       </h1>
       <div className="mb-8 prose dark:prose-dark leading-6 items-start">
         <h2>Bio</h2>

@@ -6,6 +6,9 @@ import Wrapper from "@ui/commons/Wrapper";
 import { Repository } from "types/Github";
 import client from "utils/apolloClient";
 import { gql } from "@apollo/client";
+import { enCommon } from "../../locales/en";
+import { chCommon } from "../../locales/ch";
+import { useRouter } from "next/router";
 
 export const getStaticProps: GetStaticProps<{
   pinnableItemConnection: PinnableItemConnection | any;
@@ -49,10 +52,13 @@ export const getStaticProps: GetStaticProps<{
 const Collections = ({
   pinnableItemConnection
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const router = useRouter();
+  const { locale } = router;
+  const t = locale === "en" ? enCommon : chCommon;
   return (
     <Wrapper>
       <h1 className="flex w-full max-w-2xl text-4xl font-bold mx-auto pt-8 pb-8 sm:pb-16">
-        Collections
+        {t["collections"]}
       </h1>
       <div className="grid grid-cols-1 gap-16 sm:grid-cols-2">
         {pinnableItemConnection.user.pinnedItems.nodes.map(
