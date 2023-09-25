@@ -86,7 +86,7 @@ Below shows an example from network delay problem in a directed graph.
         for u, v, w in times: # source, dest, cost
             graph[u].append((w, v))
 
-        heap = [(0, k)]
+        pq = [(0, k)]
         dist = [float(inf)] * (n)
         visited = set()
         dist[k] = 0
@@ -283,5 +283,3 @@ Here we show a brief comparsion between the three shortest path finding algorith
 | `Bellman-Ford`   | SSSP      | Directed graph, may have negative weight edges (but not negative cycles)                  | No                | `O(V + E)`                        | `O(V)`           |
 | `Dijkstra`       | SSSP      | Directed graph, non negative edge weights                                                 | Yes               | `O((V + E)*log(V))` using minHeap | `O(V + E)`       |
 | `Floyd-Warshall` | All-pairs | Directed graph, can have both positive and negative edge weight (but not negative cycles) | Yes               | `O(V^3)`                          | `O(V^2)`         |
-
-<h1 className="text-gray-100">Test 123</h1>
