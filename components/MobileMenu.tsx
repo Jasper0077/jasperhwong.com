@@ -61,7 +61,7 @@ export default function MobileMenu() {
           >
             <Link href="/">
               <a onClick={toggleMenu} className="flex w-auto pb-4">
-                {t.Home ?? "Home"}
+                {t.home ?? "Home"}
               </a>
             </Link>
           </li>
@@ -71,7 +71,7 @@ export default function MobileMenu() {
           >
             <Link href="/about">
               <a onClick={toggleMenu} className="flex w-auto pb-4">
-                {t.About ?? "About"}
+                {t.about ?? "About"}
               </a>
             </Link>
           </li>
@@ -81,7 +81,7 @@ export default function MobileMenu() {
           >
             <Link href="/blogs">
               <a onClick={toggleMenu} className="flex w-auto pb-4">
-                {t.Blogs ?? "Blogs"}
+                {t.blogs ?? "Blogs"}
               </a>
             </Link>
           </li>
@@ -91,7 +91,7 @@ export default function MobileMenu() {
           >
             <Link href="/collections">
               <a onClick={toggleMenu} className="flex w-auto pb-4">
-                {t.Collections ?? "Collections"}
+                {t.collections ?? "Collections"}
               </a>
             </Link>
           </li>
