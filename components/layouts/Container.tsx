@@ -105,13 +105,13 @@ export default function Container({ children, customMeta }: ContainerProps) {
           <div className="ml-[-0.60rem]">
             <MobileMenu />
             <div className="flex flex-wrap mx-2">
-              <NavItem href="/" text="Home" translation={t.Home} />
-              <NavItem href="/about" text="About" translation={t.About} />
-              <NavItem href="/blogs" text="Blogs" translation={t.Blogs} />
+              <NavItem href="/" text="Home" translation={t.home} />
+              <NavItem href="/about" text="About" translation={t.about} />
+              <NavItem href="/blogs" text="Blogs" translation={t.blogs} />
               <NavItem
                 href="/collections"
                 text="Collections"
-                translation={t.Collections}
+                translation={t.collections}
               />
             </div>
           </div>
