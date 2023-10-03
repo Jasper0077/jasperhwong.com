@@ -29,7 +29,6 @@
     "framer-motion": "^10.12.8",
     "graphql": "^16.7.1",
     "gray-matter": "^4.0.3",
-    "is-hotkey": "^0.2.0",
     "is-url": "^1.2.4",
     "mdx-embed": "^1.1.2",
     "next": "12.2.3",
