@@ -150,6 +150,7 @@ h3 {
 
 .prose li {
   @apply text-gray-700 dark:text-gray-400;
+  text-align: left;
 }
 
 .prose .anchor:after {
@@ -293,10 +294,17 @@ input[type="email"] {
   font-weight: inherit;
 }
 
+/* fix <a> tag going over the screen in smaller size */
+a {
+  white-space: normal;
+  word-wrap: break-word;
+}
+
 table {
   display: block;
   max-width: fit-content;
   word-wrap: break-word;
+  overflow-x: scroll;
 }
 
 .prose .callout > p {
