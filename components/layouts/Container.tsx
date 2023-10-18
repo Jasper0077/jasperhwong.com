@@ -72,7 +72,7 @@ export default function Container({ children, customMeta }: ContainerProps) {
     description:
       "Full-stack software engineer based in Singapore." +
       "interested in Web Development, Machine Learning and Algorithms",
-    url: "https://jasperhwong.vercel.app",
+    url: "https://jasperhwong.com",
     ...customMeta
   };
 
