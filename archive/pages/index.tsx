@@ -1,4 +1,3 @@
-import AnimatedHeading from "components/AnimatedHeading";
 import type { NextPage } from "next";
 
 const Home: NextPage = () => {

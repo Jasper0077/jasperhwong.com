@@ -1,8 +1,8 @@
 import { GetStaticProps, GetStaticPaths } from "next";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import dynamic from "next/dynamic";
-import { Post } from "../../types/Post";
-import { getPost, getAllPosts, mdxToHtml } from "../../utils/mdx";
+import { Post } from "../../../types/Post";
+import { getPost, getAllPosts, mdxToHtml } from "../../../utils/mdx";
 import { ParsedUrlQuery } from "querystring";
 import { Suspense } from "react";
 import Image from "next/image";

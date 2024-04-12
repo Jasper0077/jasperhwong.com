@@ -1,7 +1,7 @@
 import type { NextPage, GetStaticProps } from "next";
-import { getAllPosts } from "../../utils/mdx";
-import BlogPostCard from "../../components/blog/BlogPostCard";
-import { posts } from "../../data/posts";
+import { getAllPosts } from "../../../utils/mdx";
+import BlogPostCard from "../../../components/blog/BlogPostCard";
+import { posts } from "../../../data/posts";
 import Wrapper from "@ui/commons/Wrapper";
 
 // component render function
