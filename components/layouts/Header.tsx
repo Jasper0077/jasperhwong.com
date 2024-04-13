@@ -53,14 +53,14 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center px-10 mt-4">
+    <div className="flex flex-col justify-center mt-4">
       <Navbar>
         {/* <a href="#skip" className="skip-nav">
           Skip to content
         </a> */}
-        <div className="ml-[-0.60rem]">
+        <div className="">
           <MobileMenu />
-          <div className="flex flex-wrap mx-2">
+          <div className="flex flex-wrap">
             <NavItem href="/" text="Home" />
             <NavItem href="/about" text="About" />
             <NavItem href="/blogs" text="Blogs" />
