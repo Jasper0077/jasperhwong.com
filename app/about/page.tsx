@@ -7,7 +7,7 @@ const About = () => {
     <div className="flex flex-col justify-center max-w-2xl mx-auto mb-16 w-full">
       <div
         className={classNames(
-          "invisible fixed lg:visible",
+          "invisible absolute sm:visible",
           "top-48 right-[30%]",
           "rounded-full bg-zinc-200",
           "dark:bg-gray-600"
