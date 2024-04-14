@@ -16,6 +16,21 @@ module.exports = {
     return config;
   },
   images: {
-    domains: ["raw.githubusercontent.com", "avatars.githubusercontent.com"]
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "r2.cloudflarestorage.com",
+        port: "",
+        pathname: "*"
+      },
+      {
+        protocol: "https",
+        hostname: "raw.githubusercontent.com"
+      },
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com"
+      }
+    ]
   }
 };
