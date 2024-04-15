@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "yarn run dev",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean": "rm -rf .next && next dev"
   },
   "types": "module",
   "dependencies": {
