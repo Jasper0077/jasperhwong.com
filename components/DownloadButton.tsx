@@ -9,7 +9,7 @@ export default function DownloadButton({
     <button
       type="button"
       onClick={handleDownload}
-      className="inline-flex items-center gap-x-1.5 rounded-md bg-zinc-200 dark:bg-gray-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+      className="inline-flex items-center gap-x-1.5 rounded-md bg-zinc-200 dark:bg-gray-600 px-2 py-1 text-sm font-semibold text-[--tw-prose-body] dark:text-[--tw-prose-invert-body] shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
