@@ -1,6 +1,16 @@
 import "@/styles/tailwind.css";
 import { Providers } from "./providers";
 import Layout from "@/components/layouts/Layout";
+import { Metadata } from "next/types";
+import Favicon from "../public/favicon.ico";
+
+export const metadata: Metadata = {
+  title: "Jasper Hwong – Developer.",
+  description:
+    "Full-stack software engineer based in Singapore." +
+    "interested in Web Development, Machine Learning and Algorithms",
+  icons: [{ rel: "icon", url: Favicon.src }]
+};
 
 export default function RootLayout({
   children
