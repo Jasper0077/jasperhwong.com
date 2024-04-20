@@ -1,6 +1,6 @@
 import cn from "classnames";
 import React from "react";
-import Portal from "../Portal";
+import Portal from "./Portal";
 
 export interface ModalProps {
   open: boolean;
@@ -72,7 +72,7 @@ export const Modal = ({ open, className, children }: ModalProps) => {
           )}
         >
           <div className="relative max-w-2xl mx-auto">
-            <div className="relative bg-gray-100 dark:bg-gray-900 rounded-lg shadow-md">
+            <div className="relative bg-gray-100 dark:bg-gray-500 rounded-lg shadow-md">
               {children}
             </div>
           </div>

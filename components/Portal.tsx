@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -10,15 +12,11 @@ const Portal = ({ children }: PortalProps) => {
 
   React.useEffect(() => {
     setMounted(true);
-
     return () => setMounted(false);
   }, []);
 
   return mounted
-    ? ReactDOM.createPortal(
-        children,
-        document.querySelector("#portal") as HTMLElement
-      )
+    ? ReactDOM.createPortal(<>{children}</>, document.body as HTMLElement)
     : null;
 };
 
