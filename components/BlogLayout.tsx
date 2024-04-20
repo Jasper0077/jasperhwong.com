@@ -1,6 +1,6 @@
 "use client";
 
-import { MutableRefObject, RefObject, useContext } from "react";
+import { useContext } from "react";
 import { useRouter } from "next/navigation";
 
 import { AppContext } from "@/app/providers";
@@ -8,7 +8,6 @@ import { Container } from "@/components/Container";
 import { Prose } from "@/components/Prose";
 import { BlogWithSlug } from "@/types/Blog";
 import Image from "next/image";
-import readingTime from "reading-time";
 import React from "react";
 
 const WORD_PER_MINUTE = 260;
@@ -40,10 +39,8 @@ export function BlogLayout({
   let { previousPathname } = useContext(AppContext);
 
   React.useEffect(() => {
-    console.log("debug", ref.current?.innerText);
     if (ref.current?.innerText) {
       const words = ref.current.innerText.match(/\w+/g)?.length;
-      console.log("debug words", words);
       if (words) {
         setWordCount(words || 0);
         setReadingTime(Math.ceil(words / WORD_PER_MINUTE));
