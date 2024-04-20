@@ -35,8 +35,8 @@ export default async function Blogs() {
 
   return (
     <SimpleLayout
-      title="Writing on tech and lifestyle"
-      intro="An assortment of random snapshoted thoughts at certain point of time ordered in chronologically order."
+      title="Writing on Tech or anything."
+      intro="An assortment of random snippety cascade of thoughts at certain point of time ordered in chronologically order."
     >
       <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
         <div className="flex max-w-3xl flex-col space-y-16">
