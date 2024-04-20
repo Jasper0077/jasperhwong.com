@@ -24,7 +24,7 @@ const Home = () => {
             />
           </div>
           <div className="flex flex-col items-start justify-start gap-4">
-            <h2 className="flex w-full max-w-2xl text-lg lg:text-4xl font-bold mx-auto pt-8 pb-4 sm:pb-8">
+            <h2 className="flex w-full max-w-2xl text-4xl font-bold mx-auto pt-8 pb-4 sm:pb-8">
               Hi, I'm Jasper.
             </h2>
             <h1 className="text-lg dark:text-gray-200 text-gray-600">
