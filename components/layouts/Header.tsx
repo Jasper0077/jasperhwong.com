@@ -7,8 +7,8 @@ import React from "react";
 import { Url } from "url";
 
 import MobileMenu from "@/components/MobileMenu";
-import IconButton from "@/components/ui/commons/buttons/IconButton";
-import Navbar from "@/components/ui/commons/Navbar";
+import IconButton from "@/components/IconButton";
+import Navbar from "@/components/Navbar";
 import { useTheme } from "next-themes";
 
 interface NavItemProps {

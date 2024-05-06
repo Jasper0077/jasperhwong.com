@@ -9,7 +9,7 @@ import {
   ModalHeader
 } from "@/components/Modal";
 import Wrapper from "@/components/Wrapper";
-import { Button } from "@ui/commons/buttons/Button";
+import { Button } from "@/components/Button";
 
 const ModalPage = () => {
   const [open, setOpen] = React.useState<boolean>(false);
