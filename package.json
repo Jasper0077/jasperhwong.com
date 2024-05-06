@@ -59,7 +59,7 @@
     "autoprefixer": "^10.4.7",
     "babel-loader": "^8.3.0",
     "concurrently": "^7.6.0",
-    "eslint": "8.20.0",
+    "eslint": "^9.2.0",
     "eslint-config-next": "12.2.3",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
