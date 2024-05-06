@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
           </svg>
         </a>
       </div>
-      <div className="flex justify-center px-16">
+      <div className="flex justify-center">
         <p className="text-gray-600 dark:text-gray-400">2022 - Present</p>
       </div>
     </footer>
