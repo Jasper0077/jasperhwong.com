@@ -1,35 +1,21 @@
-name: "Deploy CI"
-
+name: Vercel Preview Deployment
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 on:
   push:
     branches:
-      - "main"
-
+      - "feature/*"
 jobs:
-  vercel:
+  Deploy-Preview:
     runs-on: ubuntu-latest
-    name: "Deploy application"
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setp-node@v1
-        with:
-          node-version: "20"
-          registry-url: https://registry.npmjs.org/
-          cache: "yarn"
-          node-version-file: ".nvmrc"
-      - name: "Deploy application"
-        run: |
-          prodRun=""
-          if [[ ${GITHUB_REF} == "refs/heads/main" ]]; then
-            prodRun="--prod"
-          fi
-
-          npx vercel --token ${VERCEL_TOKEN} $prodRun
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
-          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
-          GITHUB_API_KEY: ${{ secrets.GITHUB_API_KEY }}
-          URL: ${{ secrets.URL }}
+      - uses: actions/checkout@v2
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Build Project Artifacts
+        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
