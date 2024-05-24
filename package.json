@@ -46,7 +46,8 @@
     "remark-gfm": "^3.0.1",
     "styled-components": "^5.3.5",
     "use-delayed-render": "^0.0.7",
-    "use-sound": "^4.0.1"
+    "use-sound": "^4.0.1",
+    "vercel": "^34.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.7",
