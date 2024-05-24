@@ -5,7 +5,7 @@ env:
 on:
   push:
     branches:
-      - "feature/*"
+      - "feature/test"
 jobs:
   Deploy-Preview:
     runs-on: ubuntu-latest
