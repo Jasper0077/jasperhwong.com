@@ -75,6 +75,7 @@ function Tuner() {
     return () => clearInterval(audioSample);
   }, [source]);
 
+  // Return based on instrument type
   switch (initialTuner.instrument) {
     case "guitar":
       return (
