@@ -75,10 +75,6 @@ function Tuner() {
     return () => clearInterval(audioSample);
   }, [source]);
 
-  React.useEffect(() => {
-    console.log("debug", note, source);
-  }, [note, source]);
-
   switch (initialTuner.instrument) {
     case "guitar":
       return (
