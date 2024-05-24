@@ -6,7 +6,7 @@ workflow_dispatch:
 on:
   push:
     branches:
-      - feature/test
+      - feature/*
 jobs:
   Deploy-Preview:
     runs-on: ubuntu-latest
