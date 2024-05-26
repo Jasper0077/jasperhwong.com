@@ -1,4 +1,5 @@
 import typographyPlugin from "@tailwindcss/typography";
+import formPlugin from "@tailwindcss/forms";
 import { type Config } from "tailwindcss";
 
 import typographyStyles from "./typography";
@@ -6,7 +7,7 @@ import typographyStyles from "./typography";
 export default {
   content: ["./app/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
   darkMode: ["selector"],
-  plugins: [typographyPlugin],
+  plugins: [typographyPlugin, formPlugin],
   theme: {
     fontSize: {
       xs: ["0.8125rem", { lineHeight: "1.5rem" }],
