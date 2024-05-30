@@ -12,10 +12,12 @@ import { Group, Name } from "@/types/Group";
 import { group as groupNames } from "@/utils/group";
 
 import Card from "./_components/Card";
+import { ButtonGroup } from "@/components/ButtonGroup";
 
 function GroupPage() {
   const [group, setGroup] = React.useState<Group<Name>>([]);
   const [numberOfGroup, setNumberOfGroup] = React.useState<number>(3);
+  const [activeType, setActiveType] = React.useState<string>("Form");
   const formik = useFormik<Array<Name>>({
     initialValues: [{ id: 0, name: "" }],
     onSubmit: (values) => {
@@ -56,6 +58,11 @@ function GroupPage() {
       </div>
       <Divider vertical />
       <div className="overflow-x-auto grid h-full w-[20vw] justify-items-center place-items-start p-6 py-8 sm:p-8 lg:p-12">
+        <ButtonGroup
+          items={["Text", "Form"].map((label) => ({ label }))}
+          active={activeType}
+          onClick={setActiveType}
+        />
         <form
           className="w-full max-w-lg space-y-2"
           onSubmit={formik.handleSubmit}
@@ -64,13 +71,13 @@ function GroupPage() {
             <Button onClick={handleAddClick}>Add</Button>
             <TextField
               type="number"
-              label="groups?"
+              label="number of groups?"
               onChange={(event) =>
                 setNumberOfGroup(parseInt(event?.target.value))
               }
             />
           </div>
-          {formik.values.map(({ id, name }, index) => (
+          {formik.values.map(({ id }, index) => (
             <FormTextField
               key={id}
               handleChange={formik.handleChange}
