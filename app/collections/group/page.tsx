@@ -45,10 +45,10 @@ function GroupPage() {
   return (
     <div
       className={cn([
-        "max-w-4xl mx-auto flex flex-row justify-between items-center space-x-4 py-8 px-4"
+        "mx-auto flex max-w-4xl flex-row items-center justify-between space-x-4 px-4 py-8"
       ])}
     >
-      <div className="grid grid-cols-2 gap-4 w-[20vw]">
+      <div className="grid w-[20vw] grid-cols-2 gap-4">
         {group.map((names, teamIndex) => (
           <Card
             team={`Team ${teamIndex + 1}`}
@@ -57,7 +57,7 @@ function GroupPage() {
         ))}
       </div>
       <Divider vertical />
-      <div className="overflow-x-auto grid h-full w-[20vw] justify-items-center place-items-start p-6 py-8 sm:p-8 lg:p-12">
+      <div className="grid h-full w-[20vw] place-items-start justify-items-center overflow-x-auto p-6 py-8 sm:p-8 lg:p-12">
         <ButtonGroup
           items={["Text", "Form"].map((label) => ({ label }))}
           active={activeType}

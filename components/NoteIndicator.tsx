@@ -7,13 +7,13 @@ interface Props {
 
 export function NoteIndicator({ note }: Props) {
   return (
-    <div className="flex flex-col items-center w-[100%]">
+    <div className="flex w-[100%] flex-col items-center">
       {note && (
         <>
-          <span className="text-5xl dark:text-white text-gray-600 mb-8">
+          <span className="mb-8 text-5xl text-gray-600 dark:text-white">
             {`${note.name}${note.octave}`}
           </span>
-          <span className="text-2xl dark:text-white text-gray-600">
+          <span className="text-2xl text-gray-600 dark:text-white">
             {`${note.frequency}Hz`}
           </span>
         </>

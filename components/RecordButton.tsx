@@ -11,17 +11,17 @@ export function RecordButton({ onClick, pressed }: ICallToAction) {
         pressed
           ? "bg-gradient-to-br from-gray-500 via-purple-500 to-gray-300"
           : "bg-gradient-to-br from-gray-900 via-purple-500 to-gray-900"
-      } rounded-full shadow-md w-16 h-16`}
+      } h-16 w-16 rounded-full shadow-md`}
     >
       <button
         className={`${
           pressed
             ? "bg-gradient-to-br from-gray-500 via-purple-500 to-gray-300"
             : "bg-gradient-to-br from-gray-800 via-purple-500 to-gray-900"
-        } rounded-full transform scale-90 flex items-center justify-center w-full h-full focus:outline-none transition-all`}
+        } flex h-full w-full scale-90 transform items-center justify-center rounded-full transition-all focus:outline-none`}
         onClick={onClick}
       >
-        <IoMusicalNotes className="w-8 h-8" />
+        <IoMusicalNotes className="h-8 w-8" />
       </button>
     </div>
   );

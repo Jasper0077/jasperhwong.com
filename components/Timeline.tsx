@@ -1,8 +1,8 @@
 const Timeline = () => {
   return (
-    <ol className="relative border-l border-gray-200 dark:border-gray-700 my-8">
+    <ol className="relative my-8 border-l border-gray-200 dark:border-gray-700">
       <li className="mb-10 ml-4 list-none">
-        <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+        <div className="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-200 dark:border-gray-900 dark:bg-gray-700"></div>
         <time className="mb-1 text-lg font-normal leading-none text-gray-400 dark:text-gray-500">
           1st August 2023
         </time>
@@ -17,7 +17,7 @@ const Timeline = () => {
         </p>
       </li>
       <li className="mb-10 ml-4 list-none">
-        <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+        <div className="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-200 dark:border-gray-900 dark:bg-gray-700"></div>
         <time className="mb-1 text-lg font-normal leading-none text-gray-400 dark:text-gray-500">
           May 2022
         </time>

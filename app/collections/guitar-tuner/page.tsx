@@ -92,7 +92,7 @@ function Tuner() {
             hideText
           />
           <NoteIndicator note={note} />
-          <div className="flex flex-col items-center my-16">
+          <div className="my-16 flex flex-col items-center">
             <RecordButton
               pressed={isListening}
               onClick={isListening ? stopTuner : startTuner}

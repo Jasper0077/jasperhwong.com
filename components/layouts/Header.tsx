@@ -24,8 +24,8 @@ function NavItem({ href, text }: NavItemProps) {
       className={classNames(
         pathname === href
           ? "font-semibold text-gray-800 dark:text-gray-200"
-          : "font-normal text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-800",
-        "hidden md:inline-block p-1 mx-1 sm:px-3 sm:py-2 rounded-lg transition-opacity"
+          : "font-normal text-gray-600 hover:bg-gray-200 dark:text-gray-400 dark:hover:bg-gray-800",
+        "mx-1 hidden rounded-lg p-1 transition-opacity sm:px-3 sm:py-2 md:inline-block"
       )}
     >
       <span className="capsize">
@@ -53,7 +53,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center mt-4">
+    <div className="mt-4 flex flex-col justify-center">
       <Navbar>
         {/* <a href="#skip" className="skip-nav">
           Skip to content
@@ -69,14 +69,14 @@ const Header = () => {
         </div>
         <IconButton
           handleClick={() => setTheme(otherTheme)}
-          className="w-9 h-9 flex items-center justify-center"
+          className="flex h-9 w-9 items-center justify-center"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            className="w-5 h-5 text-gray-800 dark:text-gray-200"
+            className="h-5 w-5 text-gray-800 dark:text-gray-200"
           >
             {resolvedTheme === "dark" ? (
               <path

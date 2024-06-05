@@ -2,12 +2,12 @@ import React from "react";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="flex flex-col justify-center max-w-2xl mx-auto mb-16 w-full">
-      <hr className="w-full border-1 border-gray-200 dark:border-gray-800 mb-8" />
-      <div className="flex items-start justify-center px-16 space-x-8">
+    <footer className="mx-auto mb-16 flex w-full max-w-2xl flex-col justify-center">
+      <hr className="border-1 mb-8 w-full border-gray-200 dark:border-gray-800" />
+      <div className="flex items-start justify-center space-x-8 px-16">
         <a href="https://github.com/jasper0077">
           <svg
-            className="dark:fill-gray-400 hover:cursor-pointer"
+            className="hover:cursor-pointer dark:fill-gray-400"
             xmlns="http://www.w3.org/2000/svg"
             width="36"
             height="36"
@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
         </a>
         <a href="https://leetcode.com/jasperhwong/">
           <svg
-            className="dark:fill-gray-400 hover:cursor-pointer"
+            className="hover:cursor-pointer dark:fill-gray-400"
             xmlns="http://www.w3.org/2000/svg"
             width="36"
             height="36"
@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
         </a>
         <a href="https://www.linkedin.com/in/jasper-hwong-4482331bb/">
           <svg
-            className="dark:fill-gray-400 hover:cursor-pointer"
+            className="hover:cursor-pointer dark:fill-gray-400"
             xmlns="http://www.w3.org/2000/svg"
             data-name="Layer 1"
             width="28"

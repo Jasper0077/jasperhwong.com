@@ -23,18 +23,18 @@ export interface ModalFooterProps {
 
 export const ModalHeader = ({ title, handleClose }: ModalHeaderProps) => {
   return (
-    <div className="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-      <h3 className="text-xl font-semibold text-grey-200 dark:text-white">
+    <div className="flex items-start justify-between rounded-t border-b p-4 dark:border-gray-600">
+      <h3 className="text-grey-200 text-xl font-semibold dark:text-white">
         {title}
       </h3>
       <button
         type="button"
-        className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+        className="ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
         data-modal-hide="defaultModal"
         onClick={handleClose}
       >
         <svg
-          className="w-5 h-5"
+          className="h-5 w-5"
           fill="currentColor"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
@@ -52,11 +52,11 @@ export const ModalHeader = ({ title, handleClose }: ModalHeaderProps) => {
 };
 
 export const ModalContent = ({ children }: ModalContentProps) => {
-  return <div className="p-6 space-y-6">{children}</div>;
+  return <div className="space-y-6 p-6">{children}</div>;
 };
 
 export const ModalFooter = ({ children }: ModalFooterProps) => {
-  return <div className="p-6 space-y-6">{children}</div>;
+  return <div className="space-y-6 p-6">{children}</div>;
 };
 
 export const Modal = ({ open, className, children }: ModalProps) => {
@@ -65,14 +65,14 @@ export const Modal = ({ open, className, children }: ModalProps) => {
       {open && (
         <div
           className={cn(
-            "top-0 left-0 right-0",
+            "left-0 right-0 top-0",
             "fixed backdrop-blur-sm",
-            "z-10 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full",
+            "z-10 h-[calc(100%-1rem)] w-full overflow-y-auto overflow-x-hidden p-4 md:inset-0 md:h-full",
             className
           )}
         >
-          <div className="relative max-w-2xl mx-auto">
-            <div className="relative bg-gray-100 dark:bg-gray-500 rounded-lg shadow-md">
+          <div className="relative mx-auto max-w-2xl">
+            <div className="relative rounded-lg bg-gray-100 shadow-md dark:bg-gray-500">
               {children}
             </div>
           </div>

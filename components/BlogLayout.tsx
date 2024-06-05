@@ -74,9 +74,9 @@ export function BlogLayout({
                 <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
                 <span className="ml-3">{blog.date}</span>
               </time>
-              <div className="flex flex-col items-start justify-between w-full mt-2 md:flex-row md:items-center">
+              <div className="mt-2 flex w-full flex-col items-start justify-between md:flex-row md:items-center">
                 <div className="flex items-center">
-                  <p className="text-sm text-prose dark:text-prose-invert flex flex-row items-center gap-4">
+                  <p className="text-prose dark:text-prose-invert flex flex-row items-center gap-4 text-sm">
                     <Image
                       className="rounded-full bg-gray-200 dark:bg-gray-600"
                       src={
@@ -89,7 +89,7 @@ export function BlogLayout({
                     {blog.author}
                   </p>
                 </div>
-                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 min-w-32 md:mt-0">
+                <p className="mt-2 min-w-32 text-sm text-gray-600 md:mt-0 dark:text-gray-400">
                   {`${wordCount} words • ${readingTime} minutes`}
                 </p>
               </div>

@@ -22,7 +22,7 @@ const IconButton = ({
       aria-label={ariaLabel}
       type="button"
       className={cn(
-        "bg-gray-200 rounded-lg dark:bg-gray-600 hover:ring-2 ring-gray-300 transition-all",
+        "rounded-lg bg-gray-200 ring-gray-300 transition-all hover:ring-2 dark:bg-gray-600",
         className,
         isActive ? "bg-day-purple dark:bg-night-purple text-white" : ""
       )}

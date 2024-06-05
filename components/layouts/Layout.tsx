@@ -9,10 +9,10 @@ export default function Layout({ children }: ContainerProps) {
   return (
     <div className="flex w-full">
       <div className="fixed inset-0 flex justify-center"></div>
-      <div className="relative flex flex-col w-full">
+      <div className="relative flex w-full flex-col">
         <main
           id="skip"
-          className="relative flex flex-col p-4 text-justify bg-zinc-50 dark:bg-gray-900"
+          className="relative flex flex-col bg-zinc-50 p-4 text-justify dark:bg-gray-900"
         >
           <Header />
           {children}

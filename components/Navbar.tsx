@@ -6,7 +6,7 @@ interface NavbarProps {
 
 const Navbar = ({ children }: NavbarProps) => {
   return (
-    <nav className="flex items-center justify-between w-full max-w-2xl relative border-gray-200 dark:border-gray-700 mx-auto pt-4 pb-4 sm:pb-8  text-gray-900 bg-gray-50  dark:bg-gray-900 bg-opacity-60 dark:text-gray-100">
+    <nav className="relative mx-auto flex w-full max-w-2xl items-center justify-between border-gray-200 bg-gray-50 bg-opacity-60 pb-4 pt-4 text-gray-900 sm:pb-8 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100">
       {children}
     </nav>
   );

@@ -16,7 +16,7 @@ const ModalPage = () => {
 
   return (
     <Wrapper>
-      <h1 className="flex w-full max-w-2xl text-4xl font-bold mx-auto pt-8 pb-8 sm:pb-16">
+      <h1 className="mx-auto flex w-full max-w-2xl pb-8 pt-8 text-4xl font-bold sm:pb-16">
         Modal
       </h1>
       <p className="mb-4 text-base font-normal text-gray-600 dark:text-zinc-200">

@@ -19,8 +19,8 @@ const About = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center max-w-2xl mx-auto mb-16 w-full">
-      <div className="invisible absolute sm:visible top-48 right-[30%] flex flex-col gap-2">
+    <div className="mx-auto mb-16 flex w-full max-w-2xl flex-col justify-center">
+      <div className="invisible absolute right-[30%] top-48 flex flex-col gap-2 sm:visible">
         <div
           className={classNames("rounded-full bg-zinc-200", "dark:bg-gray-600")}
         >
@@ -38,7 +38,7 @@ const About = () => {
         </div>
         <DownloadButton title={"My resume"} handleDownload={handleDownload} />
       </div>
-      <div className="mb-8 prose dark:prose-invert leading-6 items-start">
+      <div className="prose mb-8 items-start leading-6 dark:prose-invert">
         <h2>Biography</h2>
         <h3>Job Title</h3>
         <p>Jasper Hwong - Software Developer</p>

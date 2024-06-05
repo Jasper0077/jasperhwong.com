@@ -2,7 +2,7 @@ import React from "react";
 
 const Wrapper = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex flex-col justify-center max-w-2xl mx-auto mb-16 w-full">
+    <div className="mx-auto mb-16 flex w-full max-w-2xl flex-col justify-center">
       {children}
     </div>
   );
