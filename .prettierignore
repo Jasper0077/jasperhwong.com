@@ -2,3 +2,6 @@
 build
 coverage
 .next
+*.gltf
+*.module.css
+README.md
