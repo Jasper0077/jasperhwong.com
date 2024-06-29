@@ -1,17 +1,27 @@
 import { BlogLayout } from "@/components/BlogLayout";
 import CodeSandbox from "@/components/CodeSandbox";
+import { defaultOpenGraph } from "@/constants";
 
 export const blog = {
   author: "Jasper Hwong",
   date: "2022-12-13",
   title: "Wrapping up 2022",
+  slug: "wrapping-up-2022",
   description:
     "Humans are all forgetful creatures. I wrote this memoir to chronicle my journey about my growth in 2022. Let's dive into the tapestry of memories that shaped me into who I am today (borrowed from ChatGPT in 2024)"
 };
 
 export const metadata = {
   title: blog.title,
-  description: blog.description
+  description: blog.description,
+  creator: "Jasper Hwong",
+  generator: "Next.js",
+  openGraph: defaultOpenGraph({
+    title: blog.title,
+    description: blog.description,
+    url: `${process.env.APP_URL}/${blog.slug}`,
+    type: "article"
+  })
 };
 
 export default (props) => <BlogLayout blog={blog} {...props} />;

@@ -1,17 +1,27 @@
 import { BlogLayout } from "@/components/BlogLayout";
 import CodeSandbox from "@/components/CodeSandbox";
+import { defaultOpenGraph } from "@/constants";
 
 export const blog = {
   author: "Jasper Hwong",
   date: "2023-03-20",
   title: "Stacking Context and React Portal",
+  slug: "stacking-context-and-react-portal",
   description:
     "This blog gives a brief introduction to CSS stacking context and how React portal can solve them."
 };
 
 export const metadata = {
   title: blog.title,
-  description: blog.description
+  description: blog.description,
+  creator: "Jasper Hwong",
+  generator: "Next.js",
+  openGraph: defaultOpenGraph({
+    title: blog.title,
+    description: blog.description,
+    url: `${process.env.APP_URL}/${blog.slug}`,
+    type: "article"
+  })
 };
 
 export default (props) => <BlogLayout blog={blog} {...props} />;
@@ -52,7 +62,7 @@ return (
       onClick={() => setOpen(!open)}
       variant="primary"
       size="medium"
-      className="fixed top-250 left-500 z-3"
+      className="top-250 left-500 z-3 fixed"
     >
       Open
     </Button>
@@ -96,14 +106,14 @@ return (
   <div
     className={cn(
       !open && "hidden",
-      "top-0 left-0 right-0",
+      "left-0 right-0 top-0",
       "backdrop-blur-sm",
-      "z-10 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full",
+      "z-10 h-[calc(100%-1rem)] w-full overflow-y-auto overflow-x-hidden p-4 md:inset-0 md:h-full",
       className
     )}
   >
-    <div className="relative max-w-2xl mx-auto">
-      <div className="relative bg-gray-100 dark:bg-gray-900 rounded-lg shadow-md">
+    <div className="relative mx-auto max-w-2xl">
+      <div className="relative rounded-lg bg-gray-100 shadow-md dark:bg-gray-900">
         {children}
       </div>
     </div>

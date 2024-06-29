@@ -1,16 +1,26 @@
 import { BlogLayout } from "@/components/BlogLayout";
+import { defaultOpenGraph } from "@/constants";
 
 export const blog = {
   author: "Jasper Hwong",
   date: "2022-09-07",
   title: "How to set up MDX in Next.js",
+  slug: "how-to-set-up-mdx-in-nextjs",
   description:
     "This idea at first was to create my own personal website, and I came across seeing lots of people using MDX in their portfolio website."
 };
 
 export const metadata = {
   title: blog.title,
-  description: blog.description
+  description: blog.description,
+  creator: "Jasper Hwong",
+  generator: "Next.js",
+  openGraph: defaultOpenGraph({
+    title: blog.title,
+    description: blog.description,
+    url: `${process.env.APP_URL}/${blog.slug}`,
+    type: "article"
+  })
 };
 
 export default (props) => <BlogLayout blog={blog} {...props} />;
@@ -123,8 +133,7 @@ all ready-to-use css setting to format typography in just a single magic css cla
 ```jsx
 <section
   className={cn(
-    "prose dark:prose-dark prose-sm sm:prose-base lg:prose-lg \
-    text-justify max-w-2xl mx-auto mb-16"
+    "dark:prose-dark prose-sm sm:prose-base lg:prose-lg prose mx-auto mb-16 max-w-2xl text-justify"
   )}
 >
   <MDXRemote {...source} components={components} />

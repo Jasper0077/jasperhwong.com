@@ -1,16 +1,26 @@
 import { BlogLayout } from "@/components/BlogLayout";
+import { defaultOpenGraph, defaultRobotConfig } from "@/constants";
 
 export const blog = {
   author: "Jasper Hwong",
   date: "2023-08-23",
   title: "Collection of Graph Algorithms",
+  slug: "collection-of-graph-algorithms",
   description:
     "This post shares about the brief introduction of some common graph theories and source to Leetcode questions."
 };
 
 export const metadata = {
   title: blog.title,
-  description: blog.description
+  description: blog.description,
+  creator: "Jasper Hwong",
+  generator: "Next.js",
+  openGraph: defaultOpenGraph({
+    title: blog.title,
+    description: blog.description,
+    url: `${process.env.APP_URL}/${blog.slug}`,
+    type: "article"
+  })
 };
 
 export default (props) => <BlogLayout blog={blog} {...props} />;
