@@ -1,5 +1,6 @@
 {
   "packageManager": "^yarn@1.22.19",
+  "private": true,
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
