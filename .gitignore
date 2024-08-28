@@ -11,3 +11,4 @@ coverage/
 # not pnpm
 .pnp.*
 .yarn/*
+yarn-error.log
