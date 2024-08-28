@@ -1,10 +1,7 @@
-import { Metadata } from "next";
-
 import { Card } from "@/components/Card";
 import { SimpleLayout } from "@/components/SimpleLayout";
-import { defaultOpenGraph } from "@/constants";
 import { BlogWithSlug } from "@/types/Blog";
-import { formatDate, getAllBlogs } from "@/utils/blog";
+import { formatDate, getAllBlogs } from "../../utils/blog";
 
 const Blog = ({ blog }: { blog: BlogWithSlug }) => {
   return (
