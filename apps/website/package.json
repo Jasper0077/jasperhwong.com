@@ -3,12 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prepare": "husky && husky install",
     "dev": "next dev",
     "build": "next build",
     "start": "yarn run dev",
     "clean": "rm -rf .next && next dev",
-    "postinstall": "husky install",
     "format": "prettier --write ."
   },
   "types": "module",
