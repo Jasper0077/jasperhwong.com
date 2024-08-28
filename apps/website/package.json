@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "yarn install && next build",
     "start": "yarn run dev",
     "clean": "rm -rf .next && next dev",
     "format": "prettier --write ."
